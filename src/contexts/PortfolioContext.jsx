@@ -17,6 +17,21 @@ export const PortfolioProvider = ({ children }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [terminalVisible, setTerminalVisible] = useState(true);
   const [activeTerminalPane, setActiveTerminalPane] = useState("chatbot");
+  const [terminalHeight, setTerminalHeight] = useState(250);
+
+  // Auto-collapse sidebar on mobile on initial load
+  useEffect(() => {
+    const checkMobile = () => {
+      if (window.innerWidth <= 768) {
+        setSidebarCollapsed(true);
+      }
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const openFile = (fileName) => {
     const newTabs = new Map(openTabs);
@@ -59,6 +74,10 @@ export const PortfolioProvider = ({ children }) => {
     setSidebarCollapsed(!sidebarCollapsed);
   };
 
+  const closeSidebar = () => {
+    setSidebarCollapsed(true);
+  };
+
   const toggleTerminal = () => {
     setTerminalVisible(!terminalVisible);
   };
@@ -74,10 +93,13 @@ export const PortfolioProvider = ({ children }) => {
         closeFile,
         sidebarCollapsed,
         toggleSidebar,
+        closeSidebar,
         terminalVisible,
         toggleTerminal,
         activeTerminalPane,
         setActiveTerminalPane,
+        terminalHeight,
+        setTerminalHeight,
       }}
     >
       {children}

@@ -42,6 +42,12 @@ const ActivityBar = () => {
           tabIndex="0"
           aria-label={icon.title}
           onClick={() => setActiveView(icon.id)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setActiveView(icon.id);
+            }
+          }}
         >
           <svg
             width="24"

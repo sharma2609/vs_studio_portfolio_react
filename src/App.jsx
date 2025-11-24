@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import MenuBar from "./components/MenuBar";
 import ActivityBar from "./components/ActivityBar";
 import Sidebar from "./components/Sidebar";

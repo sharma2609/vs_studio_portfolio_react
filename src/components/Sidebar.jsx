@@ -1,5 +1,4 @@
 import { usePortfolio } from "../contexts/PortfolioContext";
-import { useTheme } from "../contexts/ThemeContext";
 import ExplorerView from "./sidebar/ExplorerView";
 import SearchView from "./sidebar/SearchView";
 import SourceControlView from "./sidebar/SourceControlView";
@@ -7,7 +6,7 @@ import RunDebugView from "./sidebar/RunDebugView";
 import ExtensionsView from "./sidebar/ExtensionsView";
 
 const Sidebar = () => {
-  const { activeView, sidebarCollapsed } = usePortfolio();
+  const { activeView, sidebarCollapsed, closeSidebar } = usePortfolio();
 
   const renderActiveView = () => {
     switch (activeView) {
@@ -26,10 +25,19 @@ const Sidebar = () => {
     }
   };
 
+  const handleOverlayClick = () => {
+    closeSidebar();
+  };
+
   return (
-    <div className={`sidebar ${sidebarCollapsed ? "collapsed" : ""}`}>
-      {renderActiveView()}
-    </div>
+    <>
+      {!sidebarCollapsed && (
+        <div className="sidebar-overlay" onClick={handleOverlayClick} />
+      )}
+      <div className={`sidebar ${sidebarCollapsed ? "collapsed" : ""}`}>
+        {renderActiveView()}
+      </div>
+    </>
   );
 };
 

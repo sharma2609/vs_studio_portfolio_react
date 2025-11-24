@@ -1,7 +1,15 @@
 import { usePortfolio } from "../../contexts/PortfolioContext";
 
 const ExplorerView = () => {
-  const { openFile } = usePortfolio();
+  const { openFile, closeSidebar } = usePortfolio();
+
+  const handleFileClick = (fileName) => {
+    openFile(fileName);
+    // Close sidebar on mobile after selecting a file
+    if (window.innerWidth <= 768) {
+      closeSidebar();
+    }
+  };
 
   const files = [
     { name: "home.jsx", icon: "react" },
@@ -48,7 +56,7 @@ const ExplorerView = () => {
               <li
                 key={file.name}
                 className="hover-highlight"
-                onClick={() => openFile(file.name)}
+                onClick={() => handleFileClick(file.name)}
               >
                 <svg
                   className="file-explorer-icon"
