@@ -1,7 +1,7 @@
 import { usePortfolio } from "../contexts/PortfolioContext";
 
 const ActivityBar = () => {
-  const { activeView, setActiveView } = usePortfolio();
+  const { activeView, setActiveView, sidebarCollapsed } = usePortfolio();
 
   const icons = [
     {
@@ -32,7 +32,7 @@ const ActivityBar = () => {
   ];
 
   return (
-    <div className="activity-bar">
+    <div className={`activity-bar ${sidebarCollapsed ? "collapsed" : ""}`}>
       {icons.map((icon) => (
         <div
           key={icon.id}

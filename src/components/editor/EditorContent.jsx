@@ -3,7 +3,7 @@ import DinoGame from "./DinoGame";
 import resumeData from "../../data/resumeData";
 
 const EditorContent = () => {
-  const { activeTab, openTabs } = usePortfolio();
+  const { activeTab, openTabs, openFile } = usePortfolio();
 
   // Function to handle resume download
   const handleDownloadResume = () => {
@@ -360,8 +360,78 @@ Date:   2019
     if (!activeTab || openTabs.size === 0) {
       return (
         <div className="welcome-pane">
-          <h1>Welcome to my Portfolio!</h1>
-          <p>Click on a file in the explorer to get started.</p>
+          <div className="welcome-hero">
+            <div className="welcome-badge">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+              Meerut, India
+            </div>
+            <h1 className="welcome-title">{resumeData.personalInfo.name}</h1>
+            <h2 className="welcome-subtitle">{resumeData.personalInfo.role}</h2>
+            <p className="welcome-description">
+              Building intelligent systems, teaching computer science, and
+              creating interactive web experiences.
+            </p>
+          </div>
+
+          <div className="welcome-quick-start">
+            <h3 className="quick-start-title">Quick Start</h3>
+            <div className="quick-start-grid">
+              <button
+                className="quick-start-card"
+                onClick={() => openFile("home.jsx")}
+              >
+                <div className="card-icon">🏠</div>
+                <div className="card-title">Home</div>
+                <div className="card-description">Start here</div>
+              </button>
+              <button
+                className="quick-start-card"
+                onClick={() => openFile("about.md")}
+              >
+                <div className="card-icon">👨‍💻</div>
+                <div className="card-title">About Me</div>
+                <div className="card-description">Skills & experience</div>
+              </button>
+              <button
+                className="quick-start-card"
+                onClick={() => openFile("projects.js")}
+              >
+                <div className="card-icon">🚀</div>
+                <div className="card-title">Projects</div>
+                <div className="card-description">What I've built</div>
+              </button>
+              <button
+                className="quick-start-card"
+                onClick={() => openFile("contact.html")}
+              >
+                <div className="card-icon">📧</div>
+                <div className="card-title">Contact</div>
+                <div className="card-description">Get in touch</div>
+              </button>
+            </div>
+          </div>
+
+          <div className="welcome-features">
+            <div className="feature-item">
+              <span className="feature-icon">📁</span>
+              <span className="feature-text">Explore files in the sidebar</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">💬</span>
+              <span className="feature-text">Chat with AI in the terminal</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">🎨</span>
+              <span className="feature-text">Switch themes in Extensions</span>
+            </div>
+          </div>
         </div>
       );
     }
