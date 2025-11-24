@@ -123,6 +123,32 @@ body.obsidian-theme {
   --syntax-attribute: #d19a66;
 }
 
+body.kiro-theme {
+  /* Kiro Theme - AI-Inspired Neural Network Aesthetic */
+  /* Deep space background with cyan/teal accents representing AI consciousness */
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #0f1419;
+  --bg-tertiary: #1a1f2e;
+  --bg-editor: #0a0e1a;
+  --bg-menu: #0f1419;
+  --bg-input: #1a1f2e;
+  --bg-statusbar: #00d9ff;
+  --text-primary: #e0e6f0;
+  --text-secondary: #6b7a99;
+  --accent-primary: #00d9ff;
+  --border-primary: #1e2738;
+  --tab-active-bg: #0a0e1a;
+  --tab-inactive-bg: #0f1419;
+
+  /* Syntax colors inspired by neural pathways and data flow */
+  --syntax-keyword: #00d9ff;
+  --syntax-string: #7ee787;
+  --syntax-comment: #4a5568;
+  --syntax-number: #ff6ac1;
+  --syntax-tag: #a78bfa;
+  --syntax-attribute: #fbbf24;
+}
+
 /* --- Basic Reset and Body Styles --- */
 *,
 *::before,

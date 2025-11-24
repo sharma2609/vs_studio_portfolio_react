@@ -11,16 +11,17 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("default");
+  const [theme, setTheme] = useState("obsidian-theme");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("portfolio-theme") || "default";
+    const savedTheme =
+      localStorage.getItem("portfolio-theme") || "obsidian-theme";
     setTheme(savedTheme);
     applyTheme(savedTheme);
   }, []);
 
   const applyTheme = (themeName) => {
-    document.body.className = themeName === "default" ? "" : themeName;
+    document.body.className = themeName === "default" ? "" : `${themeName}`;
   };
 
   const changeTheme = (newTheme) => {
