@@ -2,8 +2,14 @@ import { useState } from "react";
 import { usePortfolio } from "../contexts/PortfolioContext";
 
 const MenuBar = () => {
-  const { toggleSidebar, toggleTerminal, openFile, setActiveView } =
-    usePortfolio();
+  const {
+    toggleSidebar,
+    toggleTerminal,
+    openFile,
+    setActiveView,
+    sidebarCollapsed,
+    terminalVisible,
+  } = usePortfolio();
   const [commandSearch, setCommandSearch] = useState("");
 
   const files = [
@@ -132,30 +138,54 @@ const MenuBar = () => {
         />
       </div>
       <div className="menu-bar-right flex-center">
-        <svg
-          className="layout-icon hover-highlight"
-          viewBox="0 0 16 16"
-          xmlns="http://www.w3.org/2000/svg"
-          role="button"
-          tabIndex="0"
-          aria-label="Toggle Sidebar"
+        <button
+          className="toggle-button"
           onClick={toggleSidebar}
+          aria-label="Toggle Sidebar"
+          title="Toggle Primary Sidebar (Ctrl+B)"
         >
-          <title>Toggle Sidebar</title>
-          <path d="M14.5 14.5V1.5H1.5V14.5H14.5ZM13.5 2.5V13.5H5.5V2.5H13.5ZM4.5 13.5V2.5H2.5V13.5H4.5Z" />
-        </svg>
-        <svg
-          className="layout-icon hover-highlight"
-          viewBox="0 0 16 16"
-          xmlns="http://www.w3.org/2000/svg"
-          role="button"
-          tabIndex="0"
-          aria-label="Toggle Panel"
+          <svg
+            className="toggle-icon"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            {/* Outer frame */}
+            <path
+              className="icon-frame"
+              d="M1 1.5L1.5 1H14.5L15 1.5V14.5L14.5 15H1.5L1 14.5V1.5ZM2 14H14V2H2V14Z"
+            />
+            {/* Left panel (sidebar) - this gets highlighted when sidebar is open */}
+            <path
+              className={`icon-panel ${!sidebarCollapsed ? "active" : ""}`}
+              d="M5 2H2V14H5V2Z"
+            />
+          </svg>
+        </button>
+        <button
+          className="toggle-button"
           onClick={toggleTerminal}
+          aria-label="Toggle Panel"
+          title="Toggle Panel (Ctrl+J)"
         >
-          <title>Toggle Panel</title>
-          <path d="M1.5 1.5H14.5V14.5H1.5V1.5ZM2.5 2.5V10.5H13.5V2.5H2.5ZM13.5 11.5V13.5H2.5V11.5H13.5Z" />
-        </svg>
+          <svg
+            className="toggle-icon"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            {/* Outer frame */}
+            <path
+              className="icon-frame"
+              d="M1 1.5L1.5 1H14.5L15 1.5V14.5L14.5 15H1.5L1 14.5V1.5ZM2 14H14V2H2V14Z"
+            />
+            {/* Bottom panel (terminal) - this gets highlighted when terminal is open */}
+            <path
+              className={`icon-panel ${terminalVisible ? "active" : ""}`}
+              d="M2 10H14V14H2V10Z"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );

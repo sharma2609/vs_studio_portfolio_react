@@ -5,6 +5,16 @@ import resumeData from "../../data/resumeData";
 const EditorContent = () => {
   const { activeTab, openTabs } = usePortfolio();
 
+  // Function to handle resume download
+  const handleDownloadResume = () => {
+    const link = document.createElement("a");
+    link.href = "/PriyanshuSharma_Resume.pdf";
+    link.download = "PriyanshuSharma_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const fileContents = {
     "home.jsx": `import React from 'react';
 
@@ -120,10 +130,91 @@ function downloadResume() {
 // For now, this file just shows the code for the download logic.
 // downloadResume();`,
 
-    "dino.js":
-      "// A classic Dino game.\n// Use Space or Arrow Up to jump, Arrow Down to duck.\n// Avoid the obstacles!",
+    "dino.js": `// Classic Chrome Dino Game
+// Controls:
+//   - Space / Arrow Up: Jump
+//   - Arrow Down: Duck
+// 
+// Game Features:
+// - Endless runner gameplay
+// - Increasing difficulty
+// - Obstacle avoidance
+// - Score tracking
+//
+// Built with HTML5 Canvas
 
-    "career_timeline.git": (
+class DinoGame {
+  constructor() {
+    this.canvas = document.getElementById('gameCanvas');
+    this.ctx = this.canvas.getContext('2d');
+    this.score = 0;
+    this.gameOver = false;
+  }
+  
+  start() {
+    this.gameLoop();
+  }
+  
+  gameLoop() {
+    // Game logic here
+    requestAnimationFrame(() => this.gameLoop());
+  }
+}
+
+// Initialize game
+const game = new DinoGame();
+game.start();`,
+
+    "career_timeline.git": `commit prof2025 (HEAD -> main)
+Author: ${resumeData.personalInfo.name}
+Date:   Sep 2025
+
+    feat: Started as Assistant Professor at FIT, Meerut
+    
+    - Teaching Data Structures, Algorithms, and Machine Learning
+    - Serving as Year Coordinator for 3rd-year batch
+    - Mentoring students in AI/ML projects
+
+commit mba2025
+Author: ${resumeData.personalInfo.name}
+Date:   2025
+
+    feat: Pursuing MBA at CCS University
+    
+    - Expanding business and management knowledge
+    - Combining technical expertise with business acumen
+
+commit aiminor2024
+Author: ${resumeData.personalInfo.name}
+Date:   2024-2025
+
+    feat: Completed AI Minor from IIT Ropar
+    
+    - Multidisciplinary AI program
+    - Covered ML, DL, NLP, Generative AI, and Robotics
+    - Advanced AI/ML specialization
+
+commit projects2024
+Author: ${resumeData.personalInfo.name}
+Date:   2024
+
+    docs: Built Fake News Detection & Translation Systems
+    
+    - Developed ML-based fake news classifier
+    - Created multilingual translation system
+    - Full-stack AI applications
+
+commit btech2020
+Author: ${resumeData.personalInfo.name}
+Date:   2020-2024
+
+    init: Graduated B.Tech (CSE) from MIET, Meerut
+    
+    - Computer Science and Engineering degree
+    - Foundation in programming and algorithms
+    - Started AI/ML journey`,
+
+    career_timeline_preview: (
       <div className="timeline-editor-pane">
         <h1>Career Commit History</h1>
         <ul className="timeline-list">
@@ -186,7 +277,47 @@ function downloadResume() {
       </div>
     ),
 
-    "extracurriculars.git": (
+    "extracurriculars.git": `commit blackbelt2021 (HEAD -> main)
+Author: ${resumeData.personalInfo.name}
+Date:   Mar 2021
+
+    achievement: Earned Black Belt Dan1 in Taekwondo
+    
+    - Achieved highest rank in martial arts
+    - Years of dedicated training and discipline
+    - Demonstrates commitment and perseverance
+
+commit captain2018
+Author: ${resumeData.personalInfo.name}
+Date:   May 2018
+
+    feat: Vice Sports Captain at School
+    
+    - Leadership role in school council
+    - Organized sports events and activities
+    - Mentored junior students
+
+commit gold3x
+Author: ${resumeData.personalInfo.name}
+Date:   2015-2018
+
+    achievement: 3x National Gold Medalist in Taekwondo
+    
+    - Won gold medals in 2015, 2017, and 2018
+    - Represented at national level competitions
+    - Consistent excellence in martial arts
+
+commit intl2019
+Author: ${resumeData.personalInfo.name}
+Date:   2019
+
+    feat: Participated in 7th Fujairah International Championship
+    
+    - International Taekwondo competition
+    - Represented India on global stage
+    - Gained international experience`,
+
+    extracurriculars_preview: (
       <div className="timeline-editor-pane">
         <h1>Extracurricular Commit History</h1>
         <ul className="timeline-list">
@@ -237,21 +368,388 @@ function downloadResume() {
 
     const content = fileContents[activeTab];
 
+    // Special split-view layout for home.jsx
+    if (activeTab === "home.jsx") {
+      return (
+        <div className="home-split-view">
+          {/* Left: Code view */}
+          <div className="code-panel">
+            <div className="code-header">home.jsx</div>
+            <pre className="code-content">{content}</pre>
+          </div>
+
+          {/* Right: Live preview */}
+          <div className="preview-panel">
+            <div className="preview-card">
+              <p className="preview-label">Portfolio Preview</p>
+              <h1 className="preview-title">{resumeData.personalInfo.name}</h1>
+              <h2 className="preview-subtitle">
+                {resumeData.personalInfo.role}
+              </h2>
+              <p className="preview-description">
+                I'm an Assistant Professor and AI-focused developer who enjoys
+                building intelligent tools, teaching core CS, and experimenting
+                with interactive web experiences like this portfolio.
+              </p>
+              <p className="preview-cta">
+                Use the file explorer to explore my projects, career commits,
+                and achievements — or open the <strong>CHATBOT</strong> tab in
+                the terminal to chat with an AI version of me.
+              </p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Split-view for about.md
+    if (activeTab === "about.md") {
+      return (
+        <div className="home-split-view">
+          <div className="code-panel">
+            <div className="code-header">about.md</div>
+            <pre className="code-content">{content}</pre>
+          </div>
+          <div className="preview-panel">
+            <div className="about-preview-card">
+              <h1 className="about-title">About Me</h1>
+              <p className="about-intro">
+                Hello! I'm <strong>{resumeData.personalInfo.name}</strong>,{" "}
+                {resumeData.personalInfo.role}. I'm passionate about AI/ML and
+                building innovative solutions.
+              </p>
+
+              <div className="skills-grid">
+                <div className="skill-category">
+                  <h3>💻 Programming</h3>
+                  <div className="skill-tags">
+                    {resumeData.skills.programming.map((skill, i) => (
+                      <span key={i} className="skill-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="skill-category">
+                  <h3>🤖 AI/ML</h3>
+                  <div className="skill-tags">
+                    {resumeData.skills.ai_ml.slice(0, 5).map((skill, i) => (
+                      <span key={i} className="skill-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="skill-category">
+                  <h3>🌐 Web Dev</h3>
+                  <div className="skill-tags">
+                    {resumeData.skills.webDev.slice(0, 5).map((skill, i) => (
+                      <span key={i} className="skill-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="experience-section">
+                <h3>🚀 Current Role</h3>
+                <div className="experience-card">
+                  <h4>{resumeData.experience[0].title}</h4>
+                  <p className="company">{resumeData.experience[0].company}</p>
+                  <p className="period">{resumeData.experience[0].period}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Split-view for projects.js
+    if (activeTab === "projects.js") {
+      return (
+        <div className="home-split-view">
+          <div className="code-panel">
+            <div className="code-header">projects.js</div>
+            <pre className="code-content">{content}</pre>
+          </div>
+          <div className="preview-panel">
+            <div className="projects-preview-card">
+              <h1 className="projects-title">My Projects</h1>
+              {resumeData.projects.map((project, index) => (
+                <div key={index} className="project-card">
+                  <h3 className="project-name">{project.name}</h3>
+                  <span className="project-type">{project.type}</span>
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-tech">
+                    {project.techStack.map((tech, i) => (
+                      <span key={i} className="tech-badge">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="project-features">
+                    {project.features.map((feature, i) => (
+                      <span key={i} className="feature-item">
+                        ✓ {feature}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Split-view for contact.html
+    if (activeTab === "contact.html") {
+      return (
+        <div className="home-split-view">
+          <div className="code-panel">
+            <div className="code-header">contact.html</div>
+            <pre className="code-content">{content}</pre>
+          </div>
+          <div className="preview-panel">
+            <div className="contact-preview-card">
+              <h1 className="contact-title">Get in Touch</h1>
+              <p className="contact-subtitle">
+                Let's connect and build something amazing together!
+              </p>
+
+              <div className="contact-grid">
+                <div className="contact-item">
+                  <span className="contact-icon">👤</span>
+                  <div>
+                    <div className="contact-label">Name</div>
+                    <div className="contact-value">
+                      {resumeData.personalInfo.name}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <span className="contact-icon">💼</span>
+                  <div>
+                    <div className="contact-label">Role</div>
+                    <div className="contact-value">
+                      {resumeData.personalInfo.role}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <span className="contact-icon">📍</span>
+                  <div>
+                    <div className="contact-label">Location</div>
+                    <div className="contact-value">
+                      {resumeData.personalInfo.location}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <span className="contact-icon">📧</span>
+                  <div>
+                    <div className="contact-label">Email</div>
+                    <a
+                      href={`mailto:${resumeData.personalInfo.email}`}
+                      className="contact-link"
+                    >
+                      {resumeData.personalInfo.email}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <span className="contact-icon">📱</span>
+                  <div>
+                    <div className="contact-label">Phone</div>
+                    <div className="contact-value">
+                      {resumeData.personalInfo.phone}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <span className="contact-icon">💼</span>
+                  <div>
+                    <div className="contact-label">LinkedIn</div>
+                    <a
+                      href={resumeData.personalInfo.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-link"
+                    >
+                      View Profile
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <span className="contact-icon">💻</span>
+                  <div>
+                    <div className="contact-label">GitHub</div>
+                    <a
+                      href={resumeData.personalInfo.socials.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-link"
+                    >
+                      View Profile
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <span className="contact-icon">🔗</span>
+                  <div>
+                    <div className="contact-label">Portfolio</div>
+                    <a
+                      href={resumeData.personalInfo.socials.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-link"
+                    >
+                      Visit Website
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Split-view for resume.pdf
+    if (activeTab === "resume.pdf") {
+      return (
+        <div className="home-split-view">
+          <div className="code-panel">
+            <div className="code-header">resume.pdf</div>
+            <pre className="code-content">{content}</pre>
+          </div>
+          <div className="preview-panel">
+            <div className="resume-preview-card">
+              <div className="resume-icon">📄</div>
+              <h1 className="resume-title">Resume / CV</h1>
+              <p className="resume-subtitle">
+                Download my complete professional resume
+              </p>
+
+              <div className="resume-summary">
+                <div className="resume-stat">
+                  <div className="stat-value">
+                    {resumeData.experience.length}+
+                  </div>
+                  <div className="stat-label">Years Experience</div>
+                </div>
+                <div className="resume-stat">
+                  <div className="stat-value">{resumeData.projects.length}</div>
+                  <div className="stat-label">Major Projects</div>
+                </div>
+                <div className="resume-stat">
+                  <div className="stat-value">
+                    {resumeData.education.length}
+                  </div>
+                  <div className="stat-label">Degrees</div>
+                </div>
+              </div>
+
+              <div className="resume-highlights">
+                <h3>Highlights</h3>
+                <ul>
+                  <li>🎓 {resumeData.education[0].degree}</li>
+                  <li>👨‍🏫 {resumeData.experience[0].title}</li>
+                  <li>🤖 AI/ML & Full-Stack Development</li>
+                  <li>🏆 {resumeData.achievements[0]}</li>
+                </ul>
+              </div>
+
+              <button
+                className="download-button"
+                onClick={handleDownloadResume}
+              >
+                <span className="download-icon">⬇</span>
+                Download Resume
+              </button>
+
+              <p className="resume-note">
+                Click the button above to download my complete resume in PDF
+                format
+              </p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Split-view for dino.js with playable game
     if (activeTab === "dino.js") {
-      return <DinoGame />;
+      return (
+        <div className="home-split-view">
+          <div className="code-panel">
+            <div className="code-header">dino.js</div>
+            <pre className="code-content">{content}</pre>
+          </div>
+          <div className="preview-panel">
+            <div className="game-preview-card">
+              <h2 className="game-title">🦖 Chrome Dino Game</h2>
+              <p className="game-instructions">
+                Press <kbd>Space</kbd> or <kbd>↑</kbd> to jump, <kbd>↓</kbd> to
+                duck
+              </p>
+              <DinoGame />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Split-view for career timeline
+    if (activeTab === "career_timeline.git") {
+      return (
+        <div className="home-split-view">
+          <div className="code-panel git-log-panel">
+            <div className="code-header">
+              <span className="git-icon">🌿</span> git log --oneline --graph
+            </div>
+            <pre className="code-content git-log-content">
+              {fileContents["career_timeline.git"]}
+            </pre>
+          </div>
+          <div className="preview-panel">
+            {fileContents["career_timeline_preview"]}
+          </div>
+        </div>
+      );
+    }
+
+    // Split-view for extracurriculars timeline
+    if (activeTab === "extracurriculars.git") {
+      return (
+        <div className="home-split-view">
+          <div className="code-panel git-log-panel">
+            <div className="code-header">
+              <span className="git-icon">🌿</span> git log --oneline --graph
+            </div>
+            <pre className="code-content git-log-content">
+              {fileContents["extracurriculars.git"]}
+            </pre>
+          </div>
+          <div className="preview-panel">
+            {fileContents["extracurriculars_preview"]}
+          </div>
+        </div>
+      );
     }
 
     if (typeof content === "object") {
       return (
         <div className="content-pane active raw-html-content">{content}</div>
-      );
-    }
-
-    if (activeTab === "contact.html") {
-      return (
-        <div className="content-pane active raw-html-content">
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </div>
       );
     }
 
