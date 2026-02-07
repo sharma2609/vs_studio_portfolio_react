@@ -54,7 +54,7 @@ const ChatbotPane = () => {
       input.includes("tech") ||
       input.includes("programming")
     ) {
-      return `Priyanshu's expertise is focused on AI/ML and Full-Stack Development:
+      return `Priyanshu's technical skills:
 \n🔹 Programming: ${skills.programming.join(", ")}
 🔹 AI/ML: ${skills.ai_ml.join(", ")}
 🔹 Web Development: ${skills.webDev.join(", ")}
@@ -70,11 +70,11 @@ const ChatbotPane = () => {
       input.includes("development") ||
       input.includes("career")
     ) {
-      return `Priyanshu's professional experience and development focus:
+      return `Priyanshu's professional experience and development work:
 
 🚀 **Current Focus**: AI/ML Development & Research (2024-Present)
-• Advanced machine learning system development
-• Full-stack application architecture
+• Machine learning system development
+• Full-stack application development
 • Research in NLP and multilingual processing
 
 💼 **Professional Experience**: 
@@ -95,7 +95,7 @@ const ChatbotPane = () => {
       input.includes("app")
     ) {
       const [p1, p2] = projects;
-      return `Priyanshu has worked on two key AI projects:
+      return `Priyanshu has worked on two AI projects:
 \n1. ${p1.name} | ${p1.type}
    • ${p1.description}
    • Key Features: ${p1.features.join(", ")}
@@ -117,7 +117,7 @@ const ChatbotPane = () => {
 \n• ${p.description}
 • Key Features: ${p.features.join(", ")}
 • Tech used: ${p.techStack.join(", ")}
-\nThis project demonstrates Priyanshu's skills in classical ML, text processing, and full-stack development.`;
+\nThis project demonstrates Priyanshu's work in classical ML, text processing, and application development.`;
     }
 
     // 6) Specific Project: Multilingual Translation System
@@ -132,7 +132,7 @@ const ChatbotPane = () => {
 \n• ${p.description}
 • Features: ${p.features.join(", ")}
 • Tech used: ${p.techStack.join(", ")}
-\nThis showcases Priyanshu's experience in NLP, multilingual models, and building practical AI tools.`;
+\nThis shows Priyanshu's experience in NLP, multilingual models, and building AI applications.`;
     }
 
     // 7) Education
@@ -187,7 +187,7 @@ const ChatbotPane = () => {
       input.includes("sport") ||
       input.includes("medal")
     ) {
-      return `Priyanshu's notable achievements:
+      return `Priyanshu's achievements:
 \n${achievements.map((a) => `🏆 ${a}`).join("\n")}`;
     }
 

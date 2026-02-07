@@ -1,16 +1,9 @@
 const education = [
   {
-    degree: "MBA",
-    institution: "CCS University",
-    year: "2025 - Present",
-    details: "Pursuing Master of Business Administration.",
-  },
-  {
-    degree: "Minor in AI",
-    institution: "IIT Ropar",
-    year: "2024 - 2025",
-    details:
-      "Completed multidisciplinary AI program covering ML, DL, NLP, and multilingual language processing.",
+    degree: "XII (CBSE)",
+    institution: "Dayawati Modi Academy",
+    year: "2019",
+    details: "Completed Higher Secondary Education.",
   },
   {
     degree: "Bachelor of Technology",
@@ -20,10 +13,17 @@ const education = [
     details: "Graduated with a focus on Computer Science and Engineering.",
   },
   {
-    degree: "XII (CBSE)",
-    institution: "Dayawati Modi Academy",
-    year: "2019",
-    details: "Completed Higher Secondary Education.",
+    degree: "Minor in AI",
+    institution: "IIT Ropar",
+    year: "2024 - 2025",
+    details:
+      "Completed multidisciplinary AI program covering ML, DL, NLP, and multilingual language processing.",
+  },
+  {
+    degree: "MBA",
+    institution: "CCS University",
+    year: "2025 - Present",
+    details: "Pursuing Master of Business Administration.",
   },
 ];
 

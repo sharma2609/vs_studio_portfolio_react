@@ -23,8 +23,8 @@ const HomePage = () => {
     <div>
       <h1>${resumeData.personalInfo.name}</h1>
       <h2>${resumeData.personalInfo.role}</h2>
-      <p>Welcome to my interactive portfolio.</p>
-      <p>Click on the files in the explorer to learn more about me, or head to the CHATBOT tab in the terminal to ask me anything!</p>
+      <p>Welcome to my portfolio.</p>
+      <p>Click on the files in the explorer to learn more about me, or head to the CHATBOT tab in the terminal to ask questions!</p>
     </div>
   );
 };
@@ -35,7 +35,7 @@ export default HomePage;`,
 
 Hello! I'm ${resumeData.personalInfo.name}, ${
       resumeData.personalInfo.role
-    }. I'm passionate about AI/ML and building innovative solutions that make a difference.
+    }. I work with AI/ML and build applications using various technologies.
 
 ## 💻 Skills
 
@@ -165,34 +165,15 @@ class DinoGame {
 const game = new DinoGame();
 game.start();`,
 
-    "career_timeline.git": `commit aidev2025 (HEAD -> main)
+    "career_timeline.git": `commit btech2020 (HEAD -> main)
 Author: ${resumeData.personalInfo.name}
-Date:   2025
+Date:   2020-2024
 
-    feat: Focused on AI/ML Development & Research
+    init: Graduated B.Tech (CSE) from MIET, Meerut
     
-    - Advanced AI/ML system development
-    - Full-stack application architecture
-    - Research in NLP and machine learning
-
-commit mba2025
-Author: ${resumeData.personalInfo.name}
-Date:   2025
-
-    feat: Pursuing MBA at CCS University
-    
-    - Expanding business and management knowledge
-    - Combining technical expertise with business acumen
-
-commit aiminor2024
-Author: ${resumeData.personalInfo.name}
-Date:   2024-2025
-
-    feat: Completed AI Minor from IIT Ropar
-    
-    - Multidisciplinary AI program
-    - Covered ML, DL, NLP, and multilingual processing
-    - Advanced AI/ML specialization
+    - Computer Science and Engineering degree
+    - Foundation in programming and algorithms
+    - Started AI/ML journey with hands-on projects
 
 commit projects2024
 Author: ${resumeData.personalInfo.name}
@@ -204,50 +185,47 @@ Date:   2024
     - Created multilingual translation system with speech processing
     - Full-stack AI applications with modern tech stack
 
-commit btech2020
+commit aiminor2024
 Author: ${resumeData.personalInfo.name}
-Date:   2020-2024
+Date:   2024-2025
 
-    init: Graduated B.Tech (CSE) from MIET, Meerut
+    feat: Completed AI Minor from IIT Ropar
     
-    - Computer Science and Engineering degree
-    - Foundation in programming and algorithms
-    - Started AI/ML journey with hands-on projects`,
+    - Multidisciplinary AI program
+    - Covered ML, DL, NLP, and multilingual processing
+    - Advanced AI/ML specialization
+
+commit mba2025
+Author: ${resumeData.personalInfo.name}
+Date:   2025
+
+    feat: Pursuing MBA at CCS University
+    
+    - Expanding business and management knowledge
+    - Combining technical expertise with business acumen
+
+commit aidev2025
+Author: ${resumeData.personalInfo.name}
+Date:   2025
+
+    feat: Focused on AI/ML Development & Research
+    
+    - Advanced AI/ML system development
+    - Full-stack application architecture
+    - Research in NLP and machine learning`,
 
     career_timeline_preview: (
       <div className="timeline-editor-pane">
-        <h1>Career Commit History</h1>
+        <h1>Career Timeline</h1>
         <ul className="timeline-list">
           <li className="timeline-item">
             <div className="timeline-content">
               <div className="timeline-message">
-                <span className="type feat">feat</span>: Focused on AI/ML
-                Development & Research
+                <span className="type initial">init</span>: Graduated B.Tech
+                (CSE) from MIET, Meerut
               </div>
               <div className="timeline-details">
-                {resumeData.personalInfo.name} pushed to main on 2025
-              </div>
-            </div>
-          </li>
-          <li className="timeline-item">
-            <div className="timeline-content">
-              <div className="timeline-message">
-                <span className="type feat">feat</span>: Pursuing MBA at CCS
-                University
-              </div>
-              <div className="timeline-details">
-                {resumeData.personalInfo.name} pushed to main on 2025
-              </div>
-            </div>
-          </li>
-          <li className="timeline-item">
-            <div className="timeline-content">
-              <div className="timeline-message">
-                <span className="type feat">feat</span>: Completed AI Minor from
-                IIT Ropar
-              </div>
-              <div className="timeline-details">
-                {resumeData.personalInfo.name} pushed to main on 2024-2025
+                {resumeData.personalInfo.name} pushed to main on 2020-2024
               </div>
             </div>
           </li>
@@ -265,11 +243,33 @@ Date:   2020-2024
           <li className="timeline-item">
             <div className="timeline-content">
               <div className="timeline-message">
-                <span className="type initial">init</span>: Graduated B.Tech
-                (CSE) from MIET, Meerut
+                <span className="type feat">feat</span>: Completed AI Minor from
+                IIT Ropar
               </div>
               <div className="timeline-details">
-                {resumeData.personalInfo.name} pushed to main on 2020-2024
+                {resumeData.personalInfo.name} pushed to main on 2024-2025
+              </div>
+            </div>
+          </li>
+          <li className="timeline-item">
+            <div className="timeline-content">
+              <div className="timeline-message">
+                <span className="type feat">feat</span>: Pursuing MBA at CCS
+                University
+              </div>
+              <div className="timeline-details">
+                {resumeData.personalInfo.name} pushed to main on 2025
+              </div>
+            </div>
+          </li>
+          <li className="timeline-item">
+            <div className="timeline-content">
+              <div className="timeline-message">
+                <span className="type feat">feat</span>: Focused on AI/ML
+                Development & Research
+              </div>
+              <div className="timeline-details">
+                {resumeData.personalInfo.name} pushed to main on 2025
               </div>
             </div>
           </li>
@@ -277,27 +277,7 @@ Date:   2020-2024
       </div>
     ),
 
-    "extracurriculars.git": `commit blackbelt2021 (HEAD -> main)
-Author: ${resumeData.personalInfo.name}
-Date:   Mar 2021
-
-    achievement: Earned Black Belt Dan1 in Taekwondo
-    
-    - Achieved highest rank in martial arts
-    - Years of dedicated training and discipline
-    - Demonstrates commitment and perseverance
-
-commit captain2018
-Author: ${resumeData.personalInfo.name}
-Date:   May 2018
-
-    feat: Vice Sports Captain at School
-    
-    - Leadership role in school council
-    - Organized sports events and activities
-    - Mentored junior students
-
-commit gold3x
+    "extracurriculars.git": `commit gold3x
 Author: ${resumeData.personalInfo.name}
 Date:   2015-2018
 
@@ -307,6 +287,26 @@ Date:   2015-2018
     - Represented at national level competitions
     - Consistent excellence in martial arts
 
+commit blackbelt2016
+Author: ${resumeData.personalInfo.name}
+Date:   2016
+
+    achievement: Earned Black Belt Dan1 in Taekwondo
+    
+    - Achieved highest rank in martial arts
+    - Years of dedicated training and discipline
+    - Demonstrates commitment and perseverance
+
+commit captain2018
+Author: ${resumeData.personalInfo.name}
+Date:   2017-2018
+
+    feat: Vice Sports Captain at School
+    
+    - Leadership role in school council
+    - Organized sports events and activities
+    - Mentored junior students
+
 commit intl2019
 Author: ${resumeData.personalInfo.name}
 Date:   2019
@@ -315,25 +315,39 @@ Date:   2019
     
     - International Taekwondo competition
     - Represented India on global stage
-    - Gained international experience`,
+    - Gained international experience
+
+commit leetcode2024
+Author: ${resumeData.personalInfo.name}
+Date:   2024
+
+    feat: Completed 75+ Questions at LeetCode
+    
+    - Problem-solving practice
+    - Algorithm and data structure proficiency
+    - Continuous learning in programming`,
 
     extracurriculars_preview: (
       <div className="timeline-editor-pane">
-        <h1>Extracurricular Commit History</h1>
+        <h1>Achievements Timeline</h1>
         <ul className="timeline-list">
           {resumeData.achievements.map((achievement, index) => {
             let type = "achievement";
             let date = "";
 
-            if (achievement.includes("Black Belt")) {
-              date = "2021";
+            if (achievement.includes("National Gold")) {
+              date = "2015-2018";
+            } else if (achievement.includes("Black Belt")) {
+              date = "2016";
             } else if (achievement.includes("Vice Sports Captain")) {
               date = "2017-2018";
               type = "feat";
-            } else if (achievement.includes("National Gold")) {
-              date = "2015-2018";
             } else if (achievement.includes("Fujairah")) {
               date = "2019";
+              type = "feat";
+            } else if (achievement.includes("LeetCode")) {
+              date = "2024";
+              type = "feat";
             }
 
             return (
@@ -375,9 +389,9 @@ Date:   2019
             <h1 className="welcome-title">{resumeData.personalInfo.name}</h1>
             <h2 className="welcome-subtitle">{resumeData.personalInfo.role}</h2>
             <p className="welcome-description">
-              Building intelligent AI/ML systems, developing full-stack
-              applications, and creating innovative solutions with cutting-edge
-              technology.
+              AI/ML Developer and Software Engineer focused on building
+              practical systems and applications using machine learning and
+              full-stack development.
             </p>
           </div>
 
@@ -458,15 +472,14 @@ Date:   2019
                 {resumeData.personalInfo.role}
               </h2>
               <p className="preview-description">
-                I'm an AI/ML Developer and Software Engineer passionate about
-                building intelligent systems, developing full-stack
-                applications, and experimenting with cutting-edge technologies
-                like this interactive portfolio.
+                I'm an AI/ML Developer and Software Engineer focused on building
+                practical systems, developing applications, and working with
+                machine learning technologies.
               </p>
               <p className="preview-cta">
-                Use the file explorer to explore my projects, career journey,
+                Use the file explorer to browse my projects, career timeline,
                 and achievements — or open the <strong>CHATBOT</strong> tab in
-                the terminal to chat with an AI version of me.
+                the terminal to ask questions.
               </p>
             </div>
           </div>
@@ -487,8 +500,8 @@ Date:   2019
               <h1 className="about-title">About Me</h1>
               <p className="about-intro">
                 Hello! I'm <strong>{resumeData.personalInfo.name}</strong>,{" "}
-                {resumeData.personalInfo.role}. I'm passionate about AI/ML and
-                building innovative solutions.
+                {resumeData.personalInfo.role}. I work with AI/ML and build
+                applications using various technologies.
               </p>
 
               <div className="skills-grid">
@@ -588,7 +601,7 @@ Date:   2019
             <div className="contact-preview-card">
               <h1 className="contact-title">Get in Touch</h1>
               <p className="contact-subtitle">
-                Let's connect and build something amazing together!
+                Let's connect and discuss potential opportunities.
               </p>
 
               <div className="contact-grid">
