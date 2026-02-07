@@ -84,10 +84,16 @@ const EditorGroup = () => {
             className={`resizer-h ${isResizing ? "resizing" : ""}`}
             onMouseDown={handleMouseDown}
             onTouchStart={handleTouchStart}
+            style={{
+              bottom: `${terminalHeight}px`,
+            }}
           />
           <div
             className="terminal-panel"
-            style={{ height: `${terminalHeight}px` }}
+            style={{
+              height: `${terminalHeight}px`,
+              bottom: 0,
+            }}
           >
             <TerminalPanel />
           </div>

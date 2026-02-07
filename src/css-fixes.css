@@ -1,0 +1,1332 @@
+/* CSS Fixes for Padding and Margin Issues */
+
+/* === GLOBAL FIXES === */
+
+/* Ensure consistent box-sizing across all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Fix body and html margins/padding */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* === LAYOUT FIXES === */
+
+/* Fix main window layout */
+.vscode-window {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Fix main content area */
+.main-content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* === EDITOR GROUP LAYOUT FIXES === */
+
+/* Fix editor group to have stable layout regardless of terminal */
+.editor-group {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Fix editor container to maintain consistent size */
+.editor-container {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* Fixed height regardless of terminal state */
+  height: calc(100% - 0px);
+}
+
+/* Fix tabs bar positioning */
+.tabs-bar {
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+/* Fix terminal panel positioning - overlay style */
+.terminal-panel {
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-primary);
+}
+
+/* Fix resizer positioning - overlay style */
+.resizer-h {
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  z-index: 101;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+/* === EDITOR CONTENT FIXES === */
+
+/* Fix editor content to maintain consistent size */
+.editor-content {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  position: relative;
+  /* Ensure content doesn't get hidden behind terminal */
+  padding-bottom: 0;
+}
+
+/* Fix welcome pane spacing */
+.welcome-pane {
+  padding: 2rem 1.5rem;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 2.5rem;
+  overflow: auto;
+  max-height: 100%;
+}
+
+/* Fix welcome hero spacing */
+.welcome-hero {
+  margin: 0 auto 2rem auto;
+  padding: 0;
+  max-width: 600px;
+}
+
+/* Fix welcome badge margins */
+.welcome-badge {
+  margin: 0 0 1.5rem 0;
+  padding: 0.5rem 1rem;
+}
+
+/* Fix welcome title margins */
+.welcome-title {
+  margin: 0 0 0.75rem 0;
+  padding: 0;
+}
+
+/* Fix welcome subtitle margins */
+.welcome-subtitle {
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+/* Fix welcome description margins */
+.welcome-description {
+  margin: 0;
+  padding: 0;
+}
+
+/* === QUICK START SECTION FIXES === */
+
+/* Fix quick start section spacing */
+.welcome-quick-start {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Fix quick start title margins */
+.quick-start-title {
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+
+/* Fix quick start grid spacing */
+.quick-start-grid {
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+/* Fix quick start cards */
+.quick-start-card {
+  margin: 0;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Fix card icons */
+.card-icon {
+  margin: 0 0 0.75rem 0;
+  padding: 0;
+}
+
+/* Fix card titles */
+.card-title {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+}
+
+/* Fix card descriptions */
+.card-description {
+  margin: 0;
+  padding: 0;
+}
+
+/* === FEATURES SECTION FIXES === */
+
+/* Fix welcome features spacing */
+.welcome-features {
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+/* Fix feature items */
+.feature-item {
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  box-sizing: border-box;
+}
+
+/* === SPLIT VIEW FIXES === */
+
+/* Reset and rebuild home split view with true 50:50 ratio */
+.home-split-view {
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+/* Reset and rebuild code panel - true 50% width */
+.code-panel {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex: 0 0 50%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-primary);
+}
+
+/* Reset and rebuild code header */
+.code-header {
+  margin: 0 !important;
+  padding: 0.75rem 1rem !important;
+  position: sticky;
+  top: 0;
+  background: var(--bg-secondary);
+  z-index: 5;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border-primary);
+  box-sizing: border-box;
+}
+
+/* Reset and rebuild code content container */
+.code-content {
+  margin: 0 !important;
+  padding: 1rem !important;
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  box-sizing: border-box;
+  background: var(--bg-editor);
+}
+
+/* Reset and rebuild preview panel - true 50% width */
+.preview-panel {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: auto;
+  position: relative;
+  flex: 0 0 50%;
+  min-width: 0;
+  box-sizing: border-box;
+  background: var(--bg-secondary);
+}
+
+/* === PREVIEW CARDS FIXES === */
+
+/* Reset and rebuild preview cards with minimal padding */
+.preview-card,
+.about-preview-card,
+.projects-preview-card,
+.contact-preview-card,
+.resume-preview-card,
+.game-preview-card {
+  margin: 0 !important;
+  padding: 1.5rem 1rem !important;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+  max-width: none;
+}
+
+/* Fix resume icon positioning to prevent navbar overlap */
+.resume-icon {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix resume preview card specific positioning */
+.resume-preview-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding-top: 2.5rem;
+}
+
+/* Fix resume animation container */
+.resume-preview-card .resume-icon {
+  animation: bounce 2s infinite;
+  transform-origin: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure resume content doesn't overlap with navbar */
+.resume-preview-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix preview card titles */
+.preview-title,
+.about-title,
+.projects-title,
+.contact-title,
+.resume-title,
+.game-title {
+  margin: 0 0 0.75rem 0;
+  padding: 0;
+}
+
+/* Fix preview card subtitles */
+.preview-subtitle,
+.contact-subtitle,
+.resume-subtitle {
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+
+/* Fix preview descriptions */
+.preview-description,
+.about-intro {
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+/* Fix preview CTA */
+.preview-cta {
+  margin: 1rem 0 0 0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* === SKILLS SECTION FIXES === */
+
+/* Fix skills grid */
+.skills-grid {
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+/* Fix skill category */
+.skill-category {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix skill category titles */
+.skill-category h3 {
+  margin: 0 0 0.75rem 0;
+  padding: 0;
+}
+
+/* Fix skill tags container */
+.skill-tags {
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+/* Fix individual skill tags */
+.skill-tag {
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+  box-sizing: border-box;
+}
+
+/* === EXPERIENCE SECTION FIXES === */
+
+/* Fix experience section */
+.experience-section {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix experience section titles */
+.experience-section h3 {
+  margin: 0 0 0.75rem 0;
+  padding: 0;
+}
+
+/* Fix experience card */
+.experience-card {
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Fix experience card titles */
+.experience-card h4 {
+  margin: 0 0 0.25rem 0;
+  padding: 0;
+}
+
+/* Fix experience card company */
+.experience-card .company {
+  margin: 0 0 0.25rem 0;
+  padding: 0;
+}
+
+/* Fix experience card period */
+.experience-card .period {
+  margin: 0;
+  padding: 0;
+}
+
+/* === PROJECTS SECTION FIXES === */
+
+/* Fix project cards */
+.project-card {
+  margin: 0 0 1.25rem 0;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+/* Fix project names */
+.project-name {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+}
+
+/* Fix project types */
+.project-type {
+  margin: 0 0 0.75rem 0;
+  padding: 0.25rem 0.75rem;
+  box-sizing: border-box;
+}
+
+/* Fix project descriptions */
+.project-description {
+  margin: 0.75rem 0;
+  padding: 0;
+}
+
+/* Fix project tech container */
+.project-tech {
+  margin: 0.75rem 0;
+  padding: 0;
+  gap: 0.4rem;
+}
+
+/* Fix tech badges */
+.tech-badge {
+  margin: 0;
+  padding: 0.25rem 0.6rem;
+  box-sizing: border-box;
+}
+
+/* Fix project features */
+.project-features {
+  margin: 0.75rem 0 0 0;
+  padding: 0;
+  gap: 0.4rem;
+}
+
+/* Fix feature items */
+.project-features .feature-item {
+  margin: 0;
+  padding: 0;
+}
+
+/* === CONTACT SECTION FIXES === */
+
+/* Fix contact grid */
+.contact-grid {
+  margin: 0;
+  padding: 0;
+  gap: 1.25rem;
+}
+
+/* Fix contact items */
+.contact-item {
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Fix contact labels */
+.contact-label {
+  margin: 0 0 0.25rem 0;
+  padding: 0;
+}
+
+/* Fix contact values */
+.contact-value,
+.contact-link {
+  margin: 0;
+  padding: 0;
+}
+
+/* === RESUME SECTION FIXES === */
+
+/* Fix resume summary */
+.resume-summary {
+  margin: 0 0 2rem 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+/* Fix resume stats */
+.resume-stat {
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Fix stat values */
+.stat-value {
+  margin: 0 0 0.25rem 0;
+  padding: 0;
+}
+
+/* Fix stat labels */
+.stat-label {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix resume highlights */
+.resume-highlights {
+  margin: 0 0 2rem 0;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+/* Fix resume highlights title */
+.resume-highlights h3 {
+  margin: 0 0 0.75rem 0;
+  padding: 0;
+}
+
+/* Fix resume highlights list */
+.resume-highlights ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix resume highlights items */
+.resume-highlights li {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+}
+
+/* Fix download button */
+.download-button {
+  margin: 0;
+  padding: 0.875rem 2rem;
+  box-sizing: border-box;
+}
+
+/* Fix resume note */
+.resume-note {
+  margin: 1rem 0 0 0;
+  padding: 0;
+}
+
+/* === SIDEBAR FIXES === */
+
+/* Fix sidebar */
+.sidebar {
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Fix sidebar headers */
+.sidebar-header {
+  margin: 0.5rem 0 0 0;
+  padding: 1rem 0 0.75rem 0;
+}
+
+/* Fix sidebar lists */
+.file-explorer ul,
+.theme-switcher ul,
+.game-launcher ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix sidebar list items */
+.file-explorer li,
+.theme-switcher li,
+.game-launcher li {
+  margin: 0 0 0.25rem 0;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box;
+}
+
+/* === TERMINAL FIXES === */
+
+/* Fix terminal panel */
+.terminal-panel {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix terminal header */
+.terminal-header {
+  margin: 0;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Fix terminal header items */
+.terminal-header-item {
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+/* Fix terminal body */
+.terminal-body {
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: auto;
+  height: 100%;
+}
+
+/* Fix chatbot terminal content */
+.chatbot-terminal-content {
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Fix chatbot message history */
+.chatbot-message-history {
+  margin: 0 0 1rem 0;
+  padding: 0 10px 0 0;
+}
+
+/* Fix chatbot messages */
+.chatbot-message-base {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+}
+
+/* Fix chatbot form */
+.chatbot-form {
+  margin: 1rem 0 0 0;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* Fix chatbot input */
+.chatbot-input {
+  margin: 0;
+  padding: 0 0 0 0.5rem;
+}
+
+/* Fix chatbot test button */
+.chatbot-test-button {
+  margin: 0 0 12px 0;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+/* === TIMELINE FIXES === */
+
+/* Fix timeline editor pane */
+.timeline-editor-pane {
+  margin: 0;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+}
+
+/* Fix timeline title */
+.timeline-editor-pane h1 {
+  margin: 0 0 2rem 0;
+  padding: 0 0 0.75rem 0;
+}
+
+/* Fix timeline list */
+.timeline-list {
+  margin: 0;
+  padding: 0 0 0 25px;
+}
+
+/* Fix timeline items */
+.timeline-item {
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+
+/* Fix timeline content */
+.timeline-content {
+  margin: 0;
+  padding: 0.75rem;
+  box-sizing: border-box;
+}
+
+/* Fix timeline messages */
+.timeline-message {
+  margin: 0 0 0.25rem 0;
+  padding: 0;
+}
+
+/* Fix timeline message types */
+.timeline-message .type {
+  margin: 0 0.5rem 0 0;
+  padding: 2px 8px;
+  box-sizing: border-box;
+}
+
+/* Fix timeline details */
+.timeline-details {
+  margin: 0;
+  padding: 0;
+}
+
+/* === CONTACT INFO FIXES === */
+
+/* Fix contact info */
+.contact-info {
+  margin: 0;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Fix contact info title */
+.contact-info h2 {
+  margin: 0 0 1.5rem 0;
+  padding: 0 0 0.5rem 0;
+}
+
+/* Fix contact info paragraphs */
+.contact-info p {
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* Fix contact info strong elements */
+.contact-info strong {
+  margin: 0;
+  padding: 0;
+}
+
+/* === STATUS BAR FIXES === */
+
+/* Fix status bar */
+.status-bar {
+  margin: 0;
+  padding: 0.25rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Fix status bar sections */
+.status-bar-left,
+.status-bar-right {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix status bar spans */
+.status-bar-left > span,
+.status-bar-right > span {
+  margin: 0;
+  padding: 0;
+}
+
+/* === RESPONSIVE FIXES === */
+
+/* Mobile fixes */
+@media (max-width: 768px) {
+  /* Fix editor content on mobile */
+  .editor-content {
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+  }
+
+  /* Fix welcome pane on mobile */
+  .welcome-pane {
+    padding: 1.5rem 1rem;
+    gap: 2rem;
+    max-height: 100%;
+    overflow: auto;
+  }
+
+  /* Fix welcome hero on mobile */
+  .welcome-hero {
+    margin: 0 auto 1.5rem auto;
+  }
+
+  /* Fix welcome badge on mobile */
+  .welcome-badge {
+    margin: 0 0 1rem 0;
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* Fix welcome title on mobile */
+  .welcome-title {
+    margin: 0 0 0.5rem 0;
+  }
+
+  /* Fix welcome subtitle on mobile */
+  .welcome-subtitle {
+    margin: 0 0 0.75rem 0;
+  }
+
+  /* Fix quick start title on mobile */
+  .quick-start-title {
+    margin: 0 0 1rem 0;
+  }
+
+  /* Fix quick start cards on mobile */
+  .quick-start-card {
+    padding: 1rem 0.75rem;
+  }
+
+  /* Fix card icons on mobile */
+  .card-icon {
+    margin: 0 0 0.5rem 0;
+  }
+
+  /* Fix welcome features on mobile */
+  .welcome-features {
+    gap: 0.75rem;
+  }
+
+  /* Fix feature items on mobile */
+  .feature-item {
+    padding: 0.6rem 1rem;
+  }
+
+  /* Reset and rebuild home split view on mobile - stack vertically */
+  .home-split-view {
+    padding: 0 !important;
+    gap: 0 !important;
+    height: 100%;
+    overflow: hidden;
+    flex-direction: column;
+  }
+
+  /* Reset and rebuild code panel on mobile */
+  .code-panel {
+    padding: 0 !important;
+    max-height: 40%;
+    overflow: hidden;
+    flex: 0 0 auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  /* Reset and rebuild code header on mobile */
+  .code-header {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  /* Reset and rebuild code content on mobile */
+  .code-content {
+    padding: 0.75rem !important;
+  }
+
+  /* Reset and rebuild preview panel on mobile */
+  .preview-panel {
+    flex: 1;
+    min-height: 0;
+    padding: 0 !important;
+  }
+
+  /* Reset and rebuild preview cards on mobile */
+  .preview-card,
+  .about-preview-card,
+  .projects-preview-card,
+  .contact-preview-card,
+  .resume-preview-card,
+  .game-preview-card {
+    padding: 1rem 0.75rem !important;
+    height: 100%;
+    overflow: auto;
+  }
+
+  /* Fix sidebar on mobile */
+  .sidebar {
+    padding: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  /* Fix sidebar header on mobile */
+  .sidebar-header {
+    padding: 1rem 0 0.75rem 0;
+    margin: 0.5rem 0 0 0;
+  }
+
+  /* Fix sidebar list items on mobile */
+  .file-explorer li,
+  .theme-switcher li,
+  .game-launcher li {
+    padding: 0.85rem 1rem;
+    margin: 0 0 0.25rem 0;
+  }
+
+  /* Fix terminal body on mobile */
+  .terminal-body {
+    padding: 0.75rem;
+    height: 100%;
+    overflow: auto;
+  }
+
+  /* Fix chatbot terminal content on mobile */
+  .chatbot-terminal-content {
+    padding: 0.75rem;
+    height: 100%;
+    overflow: auto;
+  }
+
+  /* Fix chatbot form on mobile */
+  .chatbot-form {
+    padding: 0.6rem;
+  }
+
+  /* Fix timeline editor pane on mobile */
+  .timeline-editor-pane {
+    padding: 1rem;
+  }
+
+  /* Fix timeline title on mobile */
+  .timeline-editor-pane h1 {
+    margin: 0 0 1rem 0;
+  }
+
+  /* Fix timeline list on mobile */
+  .timeline-list {
+    padding: 0 0 0 20px;
+  }
+
+  /* Fix contact info on mobile */
+  .contact-info {
+    padding: 1rem;
+  }
+
+  /* Fix contact info title on mobile */
+  .contact-info h2 {
+    margin: 0 0 1rem 0;
+  }
+
+  /* Fix contact info paragraphs on mobile */
+  .contact-info p {
+    padding: 0.6rem;
+  }
+
+  /* Fix status bar on mobile */
+  .status-bar {
+    padding: 0.3rem 0.75rem;
+  }
+}
+
+/* Small mobile fixes */
+@media (max-width: 480px) {
+  /* Fix welcome pane on small mobile */
+  .welcome-pane {
+    padding: 1rem 0.75rem;
+    gap: 1.5rem;
+    max-height: 100%;
+    overflow: auto;
+  }
+
+  /* Fix welcome badge on small mobile */
+  .welcome-badge {
+    padding: 0.35rem 0.7rem;
+  }
+
+  /* Fix quick start cards on small mobile */
+  .quick-start-card {
+    padding: 1rem;
+  }
+
+  /* Fix feature items on small mobile */
+  .feature-item {
+    padding: 0.5rem 0.85rem;
+  }
+
+  /* Fix menu bar on small mobile */
+  .menu-bar {
+    padding: 0 0.4rem;
+  }
+}
+
+/* === ADDITIONAL LAYOUT FIXES === */
+
+/* Fix content pane for raw content */
+.content-pane {
+  margin: 0;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Fix raw HTML content */
+.raw-html-content {
+  padding: 0;
+}
+
+/* Fix code content scrolling with new ratio */
+.code-content {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  max-height: 100%;
+  height: 100%;
+}
+
+/* Fix git log content with new ratio */
+.git-log-content {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  max-height: 100%;
+  height: 100%;
+}
+
+/* Fix git log panel */
+.git-log-panel {
+  overflow: hidden;
+}
+
+/* Ensure all preview content stays within bounds */
+.preview-panel > * {
+  max-height: 100%;
+  overflow: auto;
+}
+
+/* Fix bounce animation to not interfere with layout */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Ensure animations don't cause overflow */
+.resume-icon {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Fix scrollbar styling for better UX */
+.editor-content::-webkit-scrollbar,
+.preview-panel::-webkit-scrollbar,
+.terminal-body::-webkit-scrollbar,
+.code-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.editor-content::-webkit-scrollbar-track,
+.preview-panel::-webkit-scrollbar-track,
+.terminal-body::-webkit-scrollbar-track,
+.code-content::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+.editor-content::-webkit-scrollbar-thumb,
+.preview-panel::-webkit-scrollbar-thumb,
+.terminal-body::-webkit-scrollbar-thumb,
+.code-content::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 4px;
+}
+
+.editor-content::-webkit-scrollbar-thumb:hover,
+.preview-panel::-webkit-scrollbar-thumb:hover,
+.terminal-body::-webkit-scrollbar-thumb:hover,
+.code-content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+/* === TERMINAL LAYOUT SPECIFIC FIXES === */
+
+/* Ensure editor group maintains stable layout */
+.editor-group {
+  position: relative;
+  contain: layout;
+}
+
+/* Fix editor container layout stability */
+.editor-container {
+  position: relative;
+  contain: layout;
+}
+
+/* Terminal as overlay - doesn't affect editor layout */
+.terminal-panel {
+  position: absolute;
+  contain: layout;
+  border-top: 1px solid var(--border-primary);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Fix resizer positioning for overlay terminal */
+.resizer-h {
+  position: absolute;
+  contain: layout;
+}
+
+/* Editor content maintains consistent size */
+.editor-content {
+  position: relative;
+  contain: layout;
+}
+
+/* Split views maintain consistent proportions */
+.home-split-view {
+  contain: layout;
+}
+
+/* Preview panels maintain stable sizing */
+.preview-panel {
+  contain: layout;
+  position: relative;
+}
+/* === ADDITIONAL SPLIT VIEW OVERRIDES === */
+
+/* Override any conflicting styles from main CSS */
+.home-split-view * {
+  box-sizing: border-box;
+}
+
+/* Ensure no unwanted margins or padding from main CSS */
+.home-split-view .code-panel,
+.home-split-view .preview-panel {
+  margin: 0 !important;
+}
+
+/* Fix any potential flex issues */
+.home-split-view {
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* Ensure code and preview panels fill their containers */
+.code-panel,
+.preview-panel {
+  height: 100%;
+  min-height: 100%;
+}
+
+/* Fix git log panel in the new layout */
+.git-log-panel {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.git-log-panel .code-header {
+  flex-shrink: 0;
+}
+
+.git-log-panel .code-content {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Fix welcome pane in the new layout */
+.welcome-pane {
+  padding: 2rem 1.5rem !important;
+  margin: 0 !important;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+/* Fix content pane in the new layout */
+.content-pane {
+  margin: 0 !important;
+  padding: 1.5rem !important;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.content-pane.active {
+  display: block;
+}
+
+/* Fix raw HTML content */
+.raw-html-content {
+  padding: 0 !important;
+  height: 100%;
+}
+
+/* === MOBILE SPECIFIC OVERRIDES === */
+
+@media (max-width: 768px) {
+  /* Ensure mobile split view works correctly */
+  .home-split-view {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .code-panel {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  .preview-panel {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  /* Fix welcome pane on mobile */
+  .welcome-pane {
+    padding: 1.5rem 1rem !important;
+  }
+
+  /* Fix content pane on mobile */
+  .content-pane {
+    padding: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Fix for very small screens */
+  .code-header {
+    padding: 0.5rem !important;
+  }
+
+  .code-content {
+    padding: 0.5rem !important;
+  }
+
+  .preview-card,
+  .about-preview-card,
+  .projects-preview-card,
+  .contact-preview-card,
+  .resume-preview-card,
+  .game-preview-card {
+    padding: 0.75rem 0.5rem !important;
+  }
+
+  .welcome-pane {
+    padding: 1rem 0.75rem !important;
+  }
+
+  .content-pane {
+    padding: 0.75rem !important;
+  }
+}
+
+/* === LANDSCAPE MOBILE FIXES === */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Keep split view horizontal on landscape mobile */
+  .home-split-view {
+    flex-direction: row !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .code-panel {
+    flex: 0 0 50% !important;
+    max-height: 100% !important;
+    border-right: 1px solid var(--border-primary) !important;
+    border-bottom: none !important;
+  }
+
+  .preview-panel {
+    flex: 0 0 50% !important;
+  }
+
+  .code-header {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  .code-content {
+    padding: 0.75rem !important;
+  }
+
+  .preview-card,
+  .about-preview-card,
+  .projects-preview-card,
+  .contact-preview-card,
+  .resume-preview-card,
+  .game-preview-card {
+    padding: 1rem 0.75rem !important;
+  }
+}

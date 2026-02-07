@@ -62,19 +62,29 @@ const ChatbotPane = () => {
 🔹 Tools: ${skills.tools.join(", ")}`;
     }
 
-    // 3) Experience (Assistant Professor)
+    // 3) Experience & Development Work
     if (
       input.includes("experience") ||
       input.includes("work") ||
       input.includes("job") ||
-      input.includes("professor") ||
-      input.includes("teaching")
+      input.includes("development") ||
+      input.includes("career")
     ) {
-      const exp = experience[0];
-      return `Priyanshu's primary professional experience:
-\n👨‍🏫 ${exp.title} | ${exp.company} (${exp.period})
-${exp.description}
-\nSkills Applied: ${exp.skills.join(", ")}`;
+      return `Priyanshu's professional experience and development focus:
+
+🚀 **Current Focus**: AI/ML Development & Research (2024-Present)
+• Advanced machine learning system development
+• Full-stack application architecture
+• Research in NLP and multilingual processing
+
+💼 **Professional Experience**: 
+• ${experience[0].title} | ${experience[0].company} (${experience[0].period})
+• Skills: ${experience[0].skills.join(", ")}
+
+🎓 **Academic Background**: 
+• Minor in AI from IIT Ropar (2024-2025)
+• B.Tech CSE from MIET, Meerut (2020-2024)
+• Currently pursuing MBA at CCS University`;
     }
 
     // 4) Projects (general)
@@ -190,14 +200,14 @@ ${exp.description}
       return `You can ask me about:
 \n• Skills and technologies
 • AI/ML and web development projects
-• Teaching and work experience
+• Professional development experience
 • Education and current studies
 • Achievements and Taekwondo background
 • Contact and location
 
 For example, try:
 - "What projects has he done in AI?"
-- "Tell me about his experience as an Assistant Professor."
+- "Tell me about his development experience."
 - "What are his core skills?"`;
     }
 

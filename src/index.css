@@ -1,4 +1,6 @@
 /* --- Optimized CSS Variables for Theming --- */
+@import url("./css-fixes.css");
+
 :root {
   --font-primary: "Kode Mono", monospace;
   --font-mono: "Kode Mono", monospace;

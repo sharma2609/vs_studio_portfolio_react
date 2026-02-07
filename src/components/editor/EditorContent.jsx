@@ -165,15 +165,15 @@ class DinoGame {
 const game = new DinoGame();
 game.start();`,
 
-    "career_timeline.git": `commit prof2025 (HEAD -> main)
+    "career_timeline.git": `commit aidev2025 (HEAD -> main)
 Author: ${resumeData.personalInfo.name}
-Date:   Sep 2025
+Date:   2025
 
-    feat: Started as Assistant Professor at FIT, Meerut
+    feat: Focused on AI/ML Development & Research
     
-    - Teaching Data Structures, Algorithms, and Machine Learning
-    - Serving as Year Coordinator for 3rd-year batch
-    - Mentoring students in AI/ML projects
+    - Advanced AI/ML system development
+    - Full-stack application architecture
+    - Research in NLP and machine learning
 
 commit mba2025
 Author: ${resumeData.personalInfo.name}
@@ -191,7 +191,7 @@ Date:   2024-2025
     feat: Completed AI Minor from IIT Ropar
     
     - Multidisciplinary AI program
-    - Covered ML, DL, NLP, Generative AI, and Robotics
+    - Covered ML, DL, NLP, and multilingual processing
     - Advanced AI/ML specialization
 
 commit projects2024
@@ -200,9 +200,9 @@ Date:   2024
 
     docs: Built Fake News Detection & Translation Systems
     
-    - Developed ML-based fake news classifier
-    - Created multilingual translation system
-    - Full-stack AI applications
+    - Developed ML-based fake news classifier with research publication
+    - Created multilingual translation system with speech processing
+    - Full-stack AI applications with modern tech stack
 
 commit btech2020
 Author: ${resumeData.personalInfo.name}
@@ -212,7 +212,7 @@ Date:   2020-2024
     
     - Computer Science and Engineering degree
     - Foundation in programming and algorithms
-    - Started AI/ML journey`,
+    - Started AI/ML journey with hands-on projects`,
 
     career_timeline_preview: (
       <div className="timeline-editor-pane">
@@ -221,11 +221,11 @@ Date:   2020-2024
           <li className="timeline-item">
             <div className="timeline-content">
               <div className="timeline-message">
-                <span className="type feat">feat</span>: Started as Assistant
-                Professor at FIT, Meerut
+                <span className="type feat">feat</span>: Focused on AI/ML
+                Development & Research
               </div>
               <div className="timeline-details">
-                {resumeData.personalInfo.name} pushed to main on Sep 2025
+                {resumeData.personalInfo.name} pushed to main on 2025
               </div>
             </div>
           </li>
@@ -375,8 +375,9 @@ Date:   2019
             <h1 className="welcome-title">{resumeData.personalInfo.name}</h1>
             <h2 className="welcome-subtitle">{resumeData.personalInfo.role}</h2>
             <p className="welcome-description">
-              Building intelligent systems, teaching computer science, and
-              creating interactive web experiences.
+              Building intelligent AI/ML systems, developing full-stack
+              applications, and creating innovative solutions with cutting-edge
+              technology.
             </p>
           </div>
 
@@ -457,12 +458,13 @@ Date:   2019
                 {resumeData.personalInfo.role}
               </h2>
               <p className="preview-description">
-                I'm an Assistant Professor and AI-focused developer who enjoys
-                building intelligent tools, teaching core CS, and experimenting
-                with interactive web experiences like this portfolio.
+                I'm an AI/ML Developer and Software Engineer passionate about
+                building intelligent systems, developing full-stack
+                applications, and experimenting with cutting-edge technologies
+                like this interactive portfolio.
               </p>
               <p className="preview-cta">
-                Use the file explorer to explore my projects, career commits,
+                Use the file explorer to explore my projects, career journey,
                 and achievements — or open the <strong>CHATBOT</strong> tab in
                 the terminal to chat with an AI version of me.
               </p>
@@ -523,11 +525,11 @@ Date:   2019
               </div>
 
               <div className="experience-section">
-                <h3>🚀 Current Role</h3>
+                <h3>🚀 Latest Experience</h3>
                 <div className="experience-card">
-                  <h4>{resumeData.experience[0].title}</h4>
-                  <p className="company">{resumeData.experience[0].company}</p>
-                  <p className="period">{resumeData.experience[0].period}</p>
+                  <h4>AI/ML & Software Development</h4>
+                  <p className="company">Research & Development</p>
+                  <p className="period">2024 - Present</p>
                 </div>
               </div>
             </div>
@@ -733,8 +735,8 @@ Date:   2019
                 <h3>Highlights</h3>
                 <ul>
                   <li>🎓 {resumeData.education[0].degree}</li>
-                  <li>👨‍🏫 {resumeData.experience[0].title}</li>
-                  <li>🤖 AI/ML & Full-Stack Development</li>
+                  <li>🤖 AI/ML & Full-Stack Development Expert</li>
+                  <li>🚀 Research & Development Focus</li>
                   <li>🏆 {resumeData.achievements[0]}</li>
                 </ul>
               </div>
