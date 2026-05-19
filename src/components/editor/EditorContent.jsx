@@ -1,14 +1,21 @@
 import { usePortfolio } from "../../contexts/PortfolioContext";
 import DinoGame from "./DinoGame";
+import SplitView from "./SplitView";
 import resumeData from "../../data/resumeData";
+import { RESUME_PDF_PATH } from "../../utils/fileIcons";
 
 const EditorContent = () => {
   const { activeTab, openTabs, openFile } = usePortfolio();
 
-  // Function to handle resume download
+  const latestExperience = resumeData.experience[0];
+
+  const renderSplit = (fileName, code, preview) => (
+    <SplitView fileName={fileName} code={code} preview={preview} />
+  );
+
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/PriyanshuSharma_Resume.pdf";
+    link.href = RESUME_PDF_PATH;
     link.download = "PriyanshuSharma_Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -85,20 +92,7 @@ ${resumeData.achievements.map((achievement) => `- ${achievement}`).join("\n")}`,
       2
     )};
 
-console.log('My Projects:', projects);
-
-// Project Details:
-${resumeData.projects
-  .map(
-    (project, index) => `
-// ${index + 1}. ${project.name}
-// Type: ${project.type}
-// Description: ${project.description}
-// Tech Stack: ${project.techStack.join(", ")}
-// Features: ${project.features.join(", ")}
-`
-  )
-  .join("\n")}`,
+console.log('My Projects:', projects);`,
 
     "contact.html": `<div class="contact-info">
   <h2>Get in Touch</h2>
@@ -109,59 +103,35 @@ ${resumeData.projects
   <p><strong>Phone:</strong> ${resumeData.personalInfo.phone}</p>
   <p><strong>LinkedIn:</strong> <a href="${resumeData.personalInfo.socials.linkedin}" target="_blank">View Profile</a></p>
   <p><strong>GitHub:</strong> <a href="${resumeData.personalInfo.socials.github}" target="_blank">View Profile</a></p>
-  <p><strong>Portfolio:</strong> <a href="${resumeData.personalInfo.socials.website}" target="_blank">Visit Website</a></p>
 </div>`,
 
-    "resume.pdf": `// This action will trigger a download of my resume.
-
-function downloadResume() {
-    // In a real scenario, you would have the PDF file in your project directory.
-    const resumeUrl = './PriyanshuSharmaResume_CV.pdf';
-    
+    "resume.pdf": `function downloadResume() {
+    const resumeUrl = '${RESUME_PDF_PATH}';
     const link = document.createElement('a');
     link.href = resumeUrl;
     link.setAttribute('download', 'PriyanshuSharma_Resume.pdf');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-}
+}`,
 
-// To initiate download, you could call this function from an event listener.
-// For now, this file just shows the code for the download logic.
-// downloadResume();`,
-
-    "dino.js": `// Classic Chrome Dino Game
-// Controls:
-//   - Space / Arrow Up: Jump
-//   - Arrow Down: Duck
-// 
-// Game Features:
-// - Endless runner gameplay
-// - Increasing difficulty
-// - Obstacle avoidance
-// - Score tracking
-//
-// Built with HTML5 Canvas
-
-class DinoGame {
+    "dino.js": `class DinoGame {
   constructor() {
     this.canvas = document.getElementById('gameCanvas');
     this.ctx = this.canvas.getContext('2d');
     this.score = 0;
     this.gameOver = false;
   }
-  
+
   start() {
     this.gameLoop();
   }
-  
+
   gameLoop() {
-    // Game logic here
     requestAnimationFrame(() => this.gameLoop());
   }
 }
 
-// Initialize game
 const game = new DinoGame();
 game.start();`,
 
@@ -452,42 +422,26 @@ Date:   2024
     }
 
     const content = fileContents[activeTab];
-
-    // Special split-view layout for home.jsx
     if (activeTab === "home.jsx") {
-      return (
-        <div className="home-split-view">
-          {/* Left: Code view */}
-          <div className="code-panel">
-            <div className="code-header">home.jsx</div>
-            <pre className="code-content">{content}</pre>
-          </div>
-
-          {/* Right: Live preview */}
-          <div className="preview-panel">
-            <div className="preview-card">
-              <p className="preview-label">Portfolio Preview</p>
-              <h1 className="preview-title">{resumeData.personalInfo.name}</h1>
-              <h2 className="preview-subtitle">
-                {resumeData.personalInfo.role}
-              </h2>
-              <p className="preview-description">
-                I'm an AI/ML Developer and Software Engineer focused on building
-                practical systems, developing applications, and working with
-                machine learning technologies.
-              </p>
-              <p className="preview-cta">
-                Use the file explorer to browse my projects, career timeline,
-                and achievements — or open the <strong>CHATBOT</strong> tab in
-                the terminal to ask questions.
-              </p>
-            </div>
-          </div>
+      return renderSplit(
+        "home.jsx",
+        content,
+        <div className="preview-card">
+          <p className="preview-label">Portfolio Preview</p>
+          <h1 className="preview-title">{resumeData.personalInfo.name}</h1>
+          <h2 className="preview-subtitle">{resumeData.personalInfo.role}</h2>
+          <p className="preview-description">
+            AI/ML developer and software engineer building practical systems,
+            applications, and machine learning solutions.
+          </p>
+          <p className="preview-cta">
+            Browse files in the explorer, open <strong>career_timeline.git</strong>{" "}
+            under Source Control, or ask questions in the{" "}
+            <strong>CHATBOT</strong> terminal tab.
+          </p>
         </div>
       );
     }
-
-    // Split-view for about.md
     if (activeTab === "about.md") {
       return (
         <div className="home-split-view">
@@ -540,9 +494,9 @@ Date:   2024
               <div className="experience-section">
                 <h3>🚀 Latest Experience</h3>
                 <div className="experience-card">
-                  <h4>AI/ML & Software Development</h4>
-                  <p className="company">Research & Development</p>
-                  <p className="period">2024 - Present</p>
+                  <h4>{latestExperience.title}</h4>
+                  <p className="company">{latestExperience.company}</p>
+                  <p className="period">{latestExperience.period}</p>
                 </div>
               </div>
             </div>
@@ -550,8 +504,6 @@ Date:   2024
         </div>
       );
     }
-
-    // Split-view for projects.js
     if (activeTab === "projects.js") {
       return (
         <div className="home-split-view">
@@ -588,8 +540,6 @@ Date:   2024
         </div>
       );
     }
-
-    // Split-view for contact.html
     if (activeTab === "contact.html") {
       return (
         <div className="home-split-view">
@@ -688,28 +638,12 @@ Date:   2024
                   </div>
                 </div>
 
-                <div className="contact-item">
-                  <span className="contact-icon">🔗</span>
-                  <div>
-                    <div className="contact-label">Portfolio</div>
-                    <a
-                      href={resumeData.personalInfo.socials.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="contact-link"
-                    >
-                      Visit Website
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       );
     }
-
-    // Split-view for resume.pdf
     if (activeTab === "resume.pdf") {
       return (
         <div className="home-split-view">
@@ -771,8 +705,6 @@ Date:   2024
         </div>
       );
     }
-
-    // Split-view for dino.js with playable game
     if (activeTab === "dino.js") {
       return (
         <div className="home-split-view">
@@ -793,8 +725,6 @@ Date:   2024
         </div>
       );
     }
-
-    // Split-view for career timeline
     if (activeTab === "career_timeline.git") {
       return (
         <div className="home-split-view">
@@ -812,8 +742,6 @@ Date:   2024
         </div>
       );
     }
-
-    // Split-view for extracurriculars timeline
     if (activeTab === "extracurriculars.git") {
       return (
         <div className="home-split-view">

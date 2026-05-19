@@ -6,7 +6,7 @@ const StatusBar = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
-    }, 60000); // Update every minute
+    }, 1000);
 
     return () => clearInterval(timer);
   }, []);

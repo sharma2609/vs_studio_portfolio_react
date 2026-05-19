@@ -16,7 +16,6 @@ const EditorGroup = () => {
       const editorGroupRect = editorGroupRef.current.getBoundingClientRect();
       const newHeight = editorGroupRect.bottom - clientY;
 
-      // Constrain terminal height between 150px and 80% of editor group height
       const minHeight = 150;
       const maxHeight = editorGroupRect.height * 0.8;
       const constrainedHeight = Math.max(

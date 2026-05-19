@@ -16,11 +16,9 @@ const DinoGame = () => {
     canvas.width = 600;
     canvas.height = 200;
 
-    // Load high score from localStorage
     const savedHighScore = localStorage.getItem("dinoHighscore") || 0;
-    setHighScore(parseInt(savedHighScore));
+    setHighScore(parseInt(savedHighScore, 10) || 0);
 
-    // DinoGame class - exact copy from original
     class DinoGame {
       constructor(canvas, infoEl) {
         this.canvas = canvas;
@@ -329,7 +327,6 @@ const DinoGame = () => {
       }
     }
 
-    // Create game instance
     const game = new DinoGame(canvas, null);
     gameRef.current = game;
     game.start();

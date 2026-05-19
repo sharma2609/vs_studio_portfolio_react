@@ -7,7 +7,6 @@ const personalInfo = {
   socials: {
     linkedin: "https://linkedin.com/in/priyanshu-sharma",
     github: "https://github.com/sharma2609",
-    website: "https://bento.me/priyanshu-sharma",
   },
 };
 

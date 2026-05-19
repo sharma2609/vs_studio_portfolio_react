@@ -1,6 +1,19 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 const ThemeContext = createContext();
+const DEFAULT_THEME = "catppuccin-mocha";
+
+const LEGACY_THEME_MAP = {
+  default: "catppuccin-mocha",
+  "light-theme": "light",
+  "jellyfish-theme": "catppuccin-mocha",
+  "monokai-theme": "dark",
+  "obsidian-theme": "dark",
+  "kiro-theme": "cyberpunk",
+};
+
+const resolveTheme = (name) =>
+  LEGACY_THEME_MAP[name] || name || DEFAULT_THEME;
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
@@ -10,23 +23,21 @@ export const useTheme = () => {
   return context;
 };
 
+const getThemeClass = (themeName) => `theme-${themeName}`;
+
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("obsidian-theme");
+  const [theme, setTheme] = useState(DEFAULT_THEME);
 
   useEffect(() => {
-    const savedTheme =
-      localStorage.getItem("portfolio-theme") || "obsidian-theme";
-    setTheme(savedTheme);
-    applyTheme(savedTheme);
+    const saved = resolveTheme(localStorage.getItem("portfolio-theme"));
+    setTheme(saved);
+    document.body.className = getThemeClass(saved);
+    localStorage.setItem("portfolio-theme", saved);
   }, []);
-
-  const applyTheme = (themeName) => {
-    document.body.className = themeName === "default" ? "" : `${themeName}`;
-  };
 
   const changeTheme = (newTheme) => {
     setTheme(newTheme);
-    applyTheme(newTheme);
+    document.body.className = getThemeClass(newTheme);
     localStorage.setItem("portfolio-theme", newTheme);
   };
 

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { usePortfolio } from "../contexts/PortfolioContext";
+import { FILE_NAMES } from "../config/files";
+import personalInfo from "../data/personalInfo";
 
 const MenuBar = () => {
   const {
@@ -11,22 +13,12 @@ const MenuBar = () => {
     terminalVisible,
   } = usePortfolio();
   const [commandSearch, setCommandSearch] = useState("");
-
-  const files = [
-    "home.jsx",
-    "about.md",
-    "projects.js",
-    "contact.html",
-    "resume.pdf",
-    "career_timeline.git",
-    "extracurriculars.git",
-    "dino.js",
-  ];
+  const { socials } = personalInfo;
 
   const handleCommandSearch = (e) => {
     if (e.key === "Enter" && commandSearch.trim()) {
       const searchTerm = commandSearch.toLowerCase();
-      const matchedFile = files.find((file) =>
+      const matchedFile = FILE_NAMES.find((file) =>
         file.toLowerCase().includes(searchTerm)
       );
 
@@ -34,7 +26,6 @@ const MenuBar = () => {
         openFile(matchedFile);
         setCommandSearch("");
       } else {
-        // Switch to search view and perform search
         setActiveView("search");
         setCommandSearch("");
       }
@@ -64,7 +55,7 @@ const MenuBar = () => {
             y="55%"
             dominantBaseline="middle"
             textAnchor="middle"
-            fontFamily="Kode Mono, monospace"
+            fontFamily="JetBrainsMono Nerd Font, monospace"
             fontSize="45"
             fontWeight="bold"
             fill="var(--text-primary)"
@@ -73,8 +64,9 @@ const MenuBar = () => {
           </text>
         </svg>
         <a
-          href="https://github.com/sharma2609"
+          href={socials.github}
           target="_blank"
+          rel="noopener noreferrer"
           title="GitHub"
           className="hover-highlight"
           aria-label="My GitHub Profile"
@@ -91,8 +83,9 @@ const MenuBar = () => {
           </svg>
         </a>
         <a
-          href="https://www.linkedin.com/in/priyanshu-sharma-p2609s"
+          href={socials.linkedin}
           target="_blank"
+          rel="noopener noreferrer"
           title="LinkedIn"
           className="hover-highlight"
           aria-label="My LinkedIn Profile"
@@ -108,33 +101,16 @@ const MenuBar = () => {
             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
           </svg>
         </a>
-        <a
-          href="https://bento.me/sharma2609p"
-          target="_blank"
-          title="Bento"
-          className="hover-highlight"
-          aria-label="My Bento Profile"
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <title>Bento</title>
-            <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z" />
-          </svg>
-        </a>
       </div>
       <div className="menu-bar-center">
         <input
           type="text"
           className="command-search-bar"
-          placeholder="Search Files by Name..."
+          placeholder="Search files (Enter to open)..."
           value={commandSearch}
           onChange={(e) => setCommandSearch(e.target.value)}
           onKeyDown={handleCommandSearch}
+          aria-label="Search and open portfolio files"
         />
       </div>
       <div className="menu-bar-right flex-center">
@@ -150,12 +126,10 @@ const MenuBar = () => {
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >
-            {/* Outer frame */}
             <path
               className="icon-frame"
               d="M1 1.5L1.5 1H14.5L15 1.5V14.5L14.5 15H1.5L1 14.5V1.5ZM2 14H14V2H2V14Z"
             />
-            {/* Left panel (sidebar) - this gets highlighted when sidebar is open */}
             <path
               className={`icon-panel ${!sidebarCollapsed ? "active" : ""}`}
               d="M5 2H2V14H5V2Z"
@@ -174,12 +148,10 @@ const MenuBar = () => {
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >
-            {/* Outer frame */}
             <path
               className="icon-frame"
               d="M1 1.5L1.5 1H14.5L15 1.5V14.5L14.5 15H1.5L1 14.5V1.5ZM2 14H14V2H2V14Z"
             />
-            {/* Bottom panel (terminal) - this gets highlighted when terminal is open */}
             <path
               className={`icon-panel ${terminalVisible ? "active" : ""}`}
               d="M2 10H14V14H2V10Z"

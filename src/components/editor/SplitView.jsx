@@ -1,4 +1,3 @@
-// Reusable Split View Component
 const SplitView = ({ fileName, code, preview }) => {
   return (
     <div className="home-split-view">

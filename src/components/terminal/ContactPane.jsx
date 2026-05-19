@@ -1,4 +1,5 @@
 import { useState } from "react";
+import personalInfo from "../../data/personalInfo";
 
 const ContactPane = () => {
   const [formData, setFormData] = useState({
@@ -6,11 +7,18 @@ const ContactPane = () => {
     email: "",
     message: "",
   });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, you would send this to a backend service
-    alert("Thank you for your message! This is a demo form.");
+    const subject = encodeURIComponent(
+      `Portfolio message from ${formData.name}`
+    );
+    const body = encodeURIComponent(
+      `From: ${formData.name} (${formData.email})\n\n${formData.message}`
+    );
+    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -23,6 +31,11 @@ const ContactPane = () => {
 
   return (
     <div className="terminal-content active contact-form-container">
+      {submitted && (
+        <p className="contact-form-success">
+          Opening your email client to send the message to {personalInfo.email}.
+        </p>
+      )}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -57,7 +70,7 @@ const ContactPane = () => {
             required
           />
         </div>
-        <button type="submit">Send Message</button>
+        <button type="submit">Send via Email</button>
       </form>
     </div>
   );

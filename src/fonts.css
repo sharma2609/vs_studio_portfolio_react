@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "JetBrainsMono Nerd Font";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@v3.4.0/patched-fonts/JetBrainsMono/Ligatures/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrainsMono Nerd Font";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@v3.4.0/patched-fonts/JetBrainsMono/Ligatures/complete/JetBrains%20Mono%20Bold%20Nerd%20Font%20Complete%20Mono.woff2")
+    format("woff2");
+}

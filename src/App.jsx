@@ -6,7 +6,6 @@ import TerminalPanel from "./components/TerminalPanel";
 import StatusBar from "./components/StatusBar";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { PortfolioProvider } from "./contexts/PortfolioContext";
-import "./App.css";
 
 function App() {
   return (
