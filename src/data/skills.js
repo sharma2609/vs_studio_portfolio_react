@@ -6,9 +6,6 @@ const skills = {
     "NLP",
     "Neural Networks",
     "Classification",
-    "PyTorch",
-    "scikit-learn",
-    "Transformers",
   ],
   libraries: [
     "NumPy",
@@ -20,9 +17,9 @@ const skills = {
     "Transformers",
   ],
   tools: ["Git", "Colab", "Streamlit"],
-  webDev: ["HTML", "CSS", "Tailwind", "React", "Node", "Express", "Vite"],
+  webDev: ["HTML", "CSS", "Tailwind CSS", "React", "Vite"],
   databases: ["MySQL"],
-  core: ["Data Structures", "Algorithms", "OOP"],
+  core: ["Data Structures", "Algorithms", "Object-Oriented Programming"],
 };
 
 export default skills;

@@ -7,8 +7,6 @@ import { RESUME_PDF_PATH } from "../../utils/fileIcons";
 const EditorContent = () => {
   const { activeTab, openTabs, openFile } = usePortfolio();
 
-  const latestExperience = resumeData.experience[0];
-
   const renderSplit = (fileName, code, preview) => (
     <SplitView fileName={fileName} code={code} preview={preview} />
   );
@@ -31,7 +29,7 @@ const HomePage = () => {
       <h1>${resumeData.personalInfo.name}</h1>
       <h2>${resumeData.personalInfo.role}</h2>
       <p>Welcome to my portfolio.</p>
-      <p>Click on the files in the explorer to learn more about me, or head to the CHATBOT tab in the terminal to ask questions!</p>
+      <p>Explore the files in the sidebar to learn more about my skills, experience, and projects.</p>
     </div>
   );
 };
@@ -40,51 +38,147 @@ export default HomePage;`,
 
     "about.md": `# About Me
 
-Hello! I'm ${resumeData.personalInfo.name}, ${
-      resumeData.personalInfo.role
-    }. I work with AI/ML and build applications using various technologies.
+I'm ${resumeData.personalInfo.name}, an ${resumeData.personalInfo.role} based in ${resumeData.personalInfo.location}.
 
-## 💻 Skills
+## Background
 
-### Programming Languages
-${resumeData.skills.programming.map((skill) => `- ${skill}`).join("\n")}
+I specialize in building AI/ML systems and full-stack applications. My work focuses on natural language processing, machine learning model development, and creating practical solutions using modern technologies.
 
-### AI/ML
-${resumeData.skills.ai_ml.map((skill) => `- ${skill}`).join("\n")}
+## Current Focus
 
-### Web Development
-${resumeData.skills.webDev.map((skill) => `- ${skill}`).join("\n")}
+- AI/ML system development and research
+- Natural language processing applications
+- Full-stack web development
+- Teaching and mentoring in computer science
 
-### Tools & Platforms
-${resumeData.skills.tools.map((skill) => `- ${skill}`).join("\n")}
+## Approach
 
-### Core Concepts
-${resumeData.skills.core.map((skill) => `- ${skill}`).join("\n")}
+I believe in building practical, scalable solutions that solve real-world problems. My experience spans from research and development to teaching and implementation.
 
-## 🚀 Experience
+---
 
-${resumeData.experience
-  .map(
-    (exp) => `### ${exp.title} | ${exp.company}
-* ${exp.period}
-* ${exp.description}
-* **Skills:** ${exp.skills.join(", ")}`
-  )
-  .join("\n\n")}
+For detailed information, check out:
+- **skills.json** - Technical skills and expertise
+- **experience.ts** - Work history and roles
+- **education.py** - Academic background
+- **projects.js** - Portfolio of work`,
 
-## 🎓 Education
+    "skills.json": `{
+  "programming_languages": [
+    "Python",
+    "JavaScript",
+    "SQL"
+  ],
+  "ai_ml": {
+    "core": [
+      "Machine Learning",
+      "Deep Learning",
+      "Natural Language Processing",
+      "Neural Networks",
+      "Classification"
+    ],
+    "libraries": [
+      "NumPy",
+      "Pandas",
+      "Matplotlib",
+      "Seaborn",
+      "PyTorch",
+      "scikit-learn",
+      "Transformers"
+    ]
+  },
+  "web_development": [
+    "HTML",
+    "CSS",
+    "Tailwind CSS",
+    "React",
+    "Vite"
+  ],
+  "tools": [
+    "Git",
+    "Google Colab",
+    "Streamlit"
+  ],
+  "databases": [
+    "MySQL"
+  ],
+  "core_concepts": [
+    "Data Structures",
+    "Algorithms",
+    "Object-Oriented Programming"
+  ]
+}`,
 
-${resumeData.education
-  .map(
-    (edu) => `- **${edu.degree}**
-  * ${edu.institution} (${edu.year})
-  * ${edu.details || ""}`
-  )
-  .join("\n\n")}
+    "experience.ts": `interface Experience {
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  skills: string[];
+}
 
-## 🏆 Achievements
+const experience: Experience[] = [
+  {
+    title: "Guest Faculty",
+    company: "FIT, Meerut",
+    period: "Sep 2025 – Dec 2025",
+    description: "Taught Data Structures and Algorithms to 2nd year B.Tech students and Machine Learning to 3rd year students. Prepared coding assignments and sessional exam papers covering both theoretical and practical aspects. Started a weekly LeetCode session to get students into a habit of regular problem solving. Handled scheduling and coordination for the 3rd-year batch throughout the semester.",
+    skills: ["Teaching", "Data Structures", "Algorithms", "Machine Learning", "Academic Coordination"]
+  },
+  {
+    title: "Front-end Intern",
+    company: "BR Softsol",
+    period: "Aug 2022 – Nov 2022",
+    description: "Built and maintained responsive web interfaces for dynamic web applications. Worked on frontend features using HTML, CSS, JavaScript, and jQuery. Used AJAX to handle asynchronous communication between frontend and backend, reducing page reloads. Assisted with debugging reported issues and making UI fixes based on feedback.",
+    skills: ["HTML", "CSS", "JavaScript", "jQuery", "AJAX", "Web Development"]
+  },
+  {
+    title: "Python Internship",
+    company: "E&ICT Academy, IIT Kanpur",
+    period: "Aug 2021 – Mar 2022",
+    description: "Completed a structured Python programming internship covering core language concepts and object-oriented programming. Built various projects as part of the coursework, applying concepts learned throughout the program. Gained hands-on experience writing clean, modular Python code through regular assignments.",
+    skills: ["Python", "Object-Oriented Programming", "Problem Solving"]
+  }
+];
 
-${resumeData.achievements.map((achievement) => `- ${achievement}`).join("\n")}`,
+export default experience;`,
+
+    "education.py": `"""
+Education Background
+"""
+
+class Education:
+    def __init__(self, degree, institution, year, details):
+        self.degree = degree
+        self.institution = institution
+        self.year = year
+        self.details = details
+
+education = [
+    Education(
+        degree="Minor in AI",
+        institution="IIT Ropar",
+        year="2024 - 2026",
+        details="Multidisciplinary AI program covering ML, DL, NLP, and multilingual language processing."
+    ),
+    Education(
+        degree="Bachelor of Technology in Computer Science",
+        institution="MIET, Meerut",
+        year="2020 - 2024",
+        details="Graduated with a focus on Computer Science and Engineering."
+    ),
+    Education(
+        degree="XII (CBSE)",
+        institution="Dayawati Modi Academy",
+        year="2018 - 2019",
+        details="Completed Higher Secondary Education."
+    )
+]
+
+# Print education details
+for edu in education:
+    print(f"{edu.degree} - {edu.institution} ({edu.year})")
+`,
 
     "projects.js": `const projects = ${JSON.stringify(
       resumeData.projects,
@@ -103,6 +197,7 @@ console.log('My Projects:', projects);`,
   <p><strong>Phone:</strong> ${resumeData.personalInfo.phone}</p>
   <p><strong>LinkedIn:</strong> <a href="${resumeData.personalInfo.socials.linkedin}" target="_blank">View Profile</a></p>
   <p><strong>GitHub:</strong> <a href="${resumeData.personalInfo.socials.github}" target="_blank">View Profile</a></p>
+  <p><strong>Portfolio:</strong> <a href="${resumeData.personalInfo.socials.portfolio}" target="_blank">Visit Website</a></p>
 </div>`,
 
     "resume.pdf": `function downloadResume() {
@@ -157,22 +252,23 @@ Date:   2024
 
 commit aiminor2024
 Author: ${resumeData.personalInfo.name}
-Date:   2024-2025
+Date:   2024-2026
 
-    feat: Completed AI Minor from IIT Ropar
+    feat: Pursuing AI Minor from IIT Ropar
     
     - Multidisciplinary AI program
     - Covered ML, DL, NLP, and multilingual processing
     - Advanced AI/ML specialization
 
-commit mba2025
+commit teaching2025
 Author: ${resumeData.personalInfo.name}
-Date:   2025
+Date:   Sep 2025 - Dec 2025
 
-    feat: Pursuing MBA at CCS University
+    feat: Guest Faculty at FIT, Meerut
     
-    - Expanding business and management knowledge
-    - Combining technical expertise with business acumen
+    - Taught Data Structures & Algorithms and Machine Learning
+    - Prepared assignments and exam papers
+    - Started weekly LeetCode sessions for students
 
 commit aidev2025
 Author: ${resumeData.personalInfo.name}
@@ -213,22 +309,21 @@ Date:   2025
           <li className="timeline-item">
             <div className="timeline-content">
               <div className="timeline-message">
-                <span className="type feat">feat</span>: Completed AI Minor from
+                <span className="type feat">feat</span>: Pursuing AI Minor from
                 IIT Ropar
               </div>
               <div className="timeline-details">
-                {resumeData.personalInfo.name} pushed to main on 2024-2025
+                {resumeData.personalInfo.name} pushed to main on 2024-2026
               </div>
             </div>
           </li>
           <li className="timeline-item">
             <div className="timeline-content">
               <div className="timeline-message">
-                <span className="type feat">feat</span>: Pursuing MBA at CCS
-                University
+                <span className="type feat">feat</span>: Guest Faculty at FIT, Meerut
               </div>
               <div className="timeline-details">
-                {resumeData.personalInfo.name} pushed to main on 2025
+                {resumeData.personalInfo.name} pushed to main on Sep 2025 - Dec 2025
               </div>
             </div>
           </li>
@@ -247,21 +342,11 @@ Date:   2025
       </div>
     ),
 
-    "extracurriculars.git": `commit gold3x
-Author: ${resumeData.personalInfo.name}
-Date:   2015-2018
-
-    achievement: 3x National Gold Medalist in Taekwondo
-    
-    - Won gold medals in 2015, 2017, and 2018
-    - Represented at national level competitions
-    - Consistent excellence in martial arts
-
-commit blackbelt2016
+    "extracurriculars.git": `commit blackbelt2016
 Author: ${resumeData.personalInfo.name}
 Date:   2016
 
-    achievement: Earned Black Belt Dan1 in Taekwondo
+    achievement: Earned Black Belt Dan - 1 in Taekwondo
     
     - Achieved highest rank in martial arts
     - Years of dedicated training and discipline
@@ -276,6 +361,16 @@ Date:   2017-2018
     - Leadership role in school council
     - Organized sports events and activities
     - Mentored junior students
+
+commit medals2018
+Author: ${resumeData.personalInfo.name}
+Date:   2015, 2017, 2018
+
+    achievement: National Medalist in Taekwondo (2 Gold, 1 Silver)
+    
+    - Won 2 gold medals and 1 silver medal
+    - Represented at national level competitions
+    - Consistent excellence in martial arts
 
 commit intl2019
 Author: ${resumeData.personalInfo.name}
@@ -372,7 +467,7 @@ Date:   2024
                 className="quick-start-card"
                 onClick={() => openFile("home.jsx")}
               >
-                <div className="card-icon">🏠</div>
+                <div className="card-icon">▸</div>
                 <div className="card-title">Home</div>
                 <div className="card-description">Start here</div>
               </button>
@@ -380,23 +475,39 @@ Date:   2024
                 className="quick-start-card"
                 onClick={() => openFile("about.md")}
               >
-                <div className="card-icon">👨‍💻</div>
-                <div className="card-title">About Me</div>
-                <div className="card-description">Skills & experience</div>
+                <div className="card-icon">◉</div>
+                <div className="card-title">About</div>
+                <div className="card-description">Background & bio</div>
+              </button>
+              <button
+                className="quick-start-card"
+                onClick={() => openFile("skills.json")}
+              >
+                <div className="card-icon">{"{}"}</div>
+                <div className="card-title">Skills</div>
+                <div className="card-description">Technical expertise</div>
+              </button>
+              <button
+                className="quick-start-card"
+                onClick={() => openFile("experience.ts")}
+              >
+                <div className="card-icon">◈</div>
+                <div className="card-title">Experience</div>
+                <div className="card-description">Work history</div>
               </button>
               <button
                 className="quick-start-card"
                 onClick={() => openFile("projects.js")}
               >
-                <div className="card-icon">🚀</div>
+                <div className="card-icon">⚡</div>
                 <div className="card-title">Projects</div>
-                <div className="card-description">What I've built</div>
+                <div className="card-description">Portfolio work</div>
               </button>
               <button
                 className="quick-start-card"
                 onClick={() => openFile("contact.html")}
               >
-                <div className="card-icon">📧</div>
+                <div className="card-icon">@</div>
                 <div className="card-title">Contact</div>
                 <div className="card-description">Get in touch</div>
               </button>
@@ -405,15 +516,15 @@ Date:   2024
 
           <div className="welcome-features">
             <div className="feature-item">
-              <span className="feature-icon">📁</span>
+              <span className="feature-icon">◧</span>
               <span className="feature-text">Explore files in the sidebar</span>
             </div>
             <div className="feature-item">
-              <span className="feature-icon">💬</span>
+              <span className="feature-icon">◪</span>
               <span className="feature-text">Chat with AI in the terminal</span>
             </div>
             <div className="feature-item">
-              <span className="feature-icon">🎨</span>
+              <span className="feature-icon">◨</span>
               <span className="feature-text">Switch themes in Extensions</span>
             </div>
           </div>
@@ -435,9 +546,7 @@ Date:   2024
             applications, and machine learning solutions.
           </p>
           <p className="preview-cta">
-            Browse files in the explorer, open <strong>career_timeline.git</strong>{" "}
-            under Source Control, or ask questions in the{" "}
-            <strong>CHATBOT</strong> terminal tab.
+            Browse files in the explorer to learn more about my skills, experience, and projects.
           </p>
         </div>
       );
@@ -453,14 +562,48 @@ Date:   2024
             <div className="about-preview-card">
               <h1 className="about-title">About Me</h1>
               <p className="about-intro">
-                Hello! I'm <strong>{resumeData.personalInfo.name}</strong>,{" "}
-                {resumeData.personalInfo.role}. I work with AI/ML and build
-                applications using various technologies.
+                I'm <strong>{resumeData.personalInfo.name}</strong>, an{" "}
+                {resumeData.personalInfo.role} based in {resumeData.personalInfo.location}.
               </p>
+              
+              <div className="about-section">
+                <h3>Background</h3>
+                <p>I specialize in building AI/ML systems and full-stack applications. My work focuses on natural language processing, machine learning model development, and creating practical solutions using modern technologies.</p>
+              </div>
+
+              <div className="about-section">
+                <h3>Current Focus</h3>
+                <ul className="about-list">
+                  <li>AI/ML system development and research</li>
+                  <li>Natural language processing applications</li>
+                  <li>Full-stack web development</li>
+                  <li>Teaching and mentoring in computer science</li>
+                </ul>
+              </div>
+
+              <div className="about-section">
+                <h3>Approach</h3>
+                <p>I believe in building practical, scalable solutions that solve real-world problems. My experience spans from research and development to teaching and implementation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    if (activeTab === "skills.json") {
+      return (
+        <div className="home-split-view">
+          <div className="code-panel">
+            <div className="code-header">skills.json</div>
+            <pre className="code-content">{content}</pre>
+          </div>
+          <div className="preview-panel">
+            <div className="skills-preview-card">
+              <h1 className="skills-title">Technical Skills</h1>
 
               <div className="skills-grid">
                 <div className="skill-category">
-                  <h3>💻 Programming</h3>
+                  <h3>Programming Languages</h3>
                   <div className="skill-tags">
                     {resumeData.skills.programming.map((skill, i) => (
                       <span key={i} className="skill-tag">
@@ -469,36 +612,115 @@ Date:   2024
                     ))}
                   </div>
                 </div>
-                <div className="skill-category">
-                  <h3>🤖 AI/ML</h3>
-                  <div className="skill-tags">
-                    {resumeData.skills.ai_ml.slice(0, 5).map((skill, i) => (
-                      <span key={i} className="skill-tag">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="skill-category">
-                  <h3>🌐 Web Dev</h3>
-                  <div className="skill-tags">
-                    {resumeData.skills.webDev.slice(0, 5).map((skill, i) => (
-                      <span key={i} className="skill-tag">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
 
-              <div className="experience-section">
-                <h3>🚀 Latest Experience</h3>
-                <div className="experience-card">
-                  <h4>{latestExperience.title}</h4>
-                  <p className="company">{latestExperience.company}</p>
-                  <p className="period">{latestExperience.period}</p>
+                <div className="skill-category">
+                  <h3>AI & Machine Learning</h3>
+                  <div className="skill-tags">
+                    {resumeData.skills.ai_ml.map((skill, i) => (
+                      <span key={i} className="skill-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="skill-category">
+                  <h3>ML Libraries & Frameworks</h3>
+                  <div className="skill-tags">
+                    {resumeData.skills.libraries.map((skill, i) => (
+                      <span key={i} className="skill-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="skill-category">
+                  <h3>Web Development</h3>
+                  <div className="skill-tags">
+                    {resumeData.skills.webDev.map((skill, i) => (
+                      <span key={i} className="skill-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="skill-category">
+                  <h3>Tools & Platforms</h3>
+                  <div className="skill-tags">
+                    {resumeData.skills.tools.map((skill, i) => (
+                      <span key={i} className="skill-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="skill-category">
+                  <h3>Core Concepts</h3>
+                  <div className="skill-tags">
+                    {resumeData.skills.core.map((skill, i) => (
+                      <span key={i} className="skill-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    if (activeTab === "experience.ts") {
+      return (
+        <div className="home-split-view">
+          <div className="code-panel">
+            <div className="code-header">experience.ts</div>
+            <pre className="code-content">{content}</pre>
+          </div>
+          <div className="preview-panel">
+            <div className="experience-preview-card">
+              <h1 className="experience-title">Work Experience</h1>
+              {resumeData.experience.map((exp, index) => (
+                <div key={index} className="experience-card">
+                  <h3 className="exp-title">{exp.title}</h3>
+                  <p className="exp-company">{exp.company}</p>
+                  <p className="exp-period">{exp.period}</p>
+                  <p className="exp-description">{exp.description}</p>
+                  <div className="exp-skills">
+                    {exp.skills.map((skill, i) => (
+                      <span key={i} className="skill-tag">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+    if (activeTab === "education.py") {
+      return (
+        <div className="home-split-view">
+          <div className="code-panel">
+            <div className="code-header">education.py</div>
+            <pre className="code-content">{content}</pre>
+          </div>
+          <div className="preview-panel">
+            <div className="education-preview-card">
+              <h1 className="education-title">Education</h1>
+              {resumeData.education.map((edu, index) => (
+                <div key={index} className="education-card">
+                  <h3 className="edu-degree">{edu.degree}</h3>
+                  <p className="edu-institution">{edu.institution}</p>
+                  <p className="edu-year">{edu.year}</p>
+                  <p className="edu-details">{edu.details}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -513,25 +735,32 @@ Date:   2024
           </div>
           <div className="preview-panel">
             <div className="projects-preview-card">
-              <h1 className="projects-title">My Projects</h1>
+              <h1 className="projects-title">Projects</h1>
               {resumeData.projects.map((project, index) => (
                 <div key={index} className="project-card">
-                  <h3 className="project-name">{project.name}</h3>
-                  <span className="project-type">{project.type}</span>
+                  <div className="project-header">
+                    <h3 className="project-name">{project.name}</h3>
+                    <span className="project-type">{project.type}</span>
+                  </div>
+                  <p className="project-domain">{project.domain}</p>
                   <p className="project-description">{project.description}</p>
                   <div className="project-tech">
-                    {project.techStack.map((tech, i) => (
-                      <span key={i} className="tech-badge">
-                        {tech}
-                      </span>
-                    ))}
+                    <strong>Tech Stack:</strong>
+                    <div className="tech-tags">
+                      {project.techStack.map((tech, i) => (
+                        <span key={i} className="tech-badge">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   <div className="project-features">
-                    {project.features.map((feature, i) => (
-                      <span key={i} className="feature-item">
-                        ✓ {feature}
-                      </span>
-                    ))}
+                    <strong>Key Features:</strong>
+                    <ul>
+                      {project.features.map((feature, i) => (
+                        <li key={i}>{feature}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               ))}
@@ -556,7 +785,7 @@ Date:   2024
 
               <div className="contact-grid">
                 <div className="contact-item">
-                  <span className="contact-icon">👤</span>
+                  <span className="contact-icon">▸</span>
                   <div>
                     <div className="contact-label">Name</div>
                     <div className="contact-value">
@@ -566,7 +795,7 @@ Date:   2024
                 </div>
 
                 <div className="contact-item">
-                  <span className="contact-icon">💼</span>
+                  <span className="contact-icon">◉</span>
                   <div>
                     <div className="contact-label">Role</div>
                     <div className="contact-value">
@@ -576,7 +805,7 @@ Date:   2024
                 </div>
 
                 <div className="contact-item">
-                  <span className="contact-icon">📍</span>
+                  <span className="contact-icon">◈</span>
                   <div>
                     <div className="contact-label">Location</div>
                     <div className="contact-value">
@@ -586,7 +815,7 @@ Date:   2024
                 </div>
 
                 <div className="contact-item">
-                  <span className="contact-icon">📧</span>
+                  <span className="contact-icon">@</span>
                   <div>
                     <div className="contact-label">Email</div>
                     <a
@@ -599,7 +828,7 @@ Date:   2024
                 </div>
 
                 <div className="contact-item">
-                  <span className="contact-icon">📱</span>
+                  <span className="contact-icon">☎</span>
                   <div>
                     <div className="contact-label">Phone</div>
                     <div className="contact-value">
@@ -609,7 +838,7 @@ Date:   2024
                 </div>
 
                 <div className="contact-item">
-                  <span className="contact-icon">💼</span>
+                  <span className="contact-icon">◪</span>
                   <div>
                     <div className="contact-label">LinkedIn</div>
                     <a
@@ -624,7 +853,7 @@ Date:   2024
                 </div>
 
                 <div className="contact-item">
-                  <span className="contact-icon">💻</span>
+                  <span className="contact-icon">◧</span>
                   <div>
                     <div className="contact-label">GitHub</div>
                     <a
@@ -634,6 +863,21 @@ Date:   2024
                       className="contact-link"
                     >
                       View Profile
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <span className="contact-icon">◨</span>
+                  <div>
+                    <div className="contact-label">Portfolio</div>
+                    <a
+                      href={resumeData.personalInfo.socials.portfolio}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-link"
+                    >
+                      Visit Website
                     </a>
                   </div>
                 </div>
@@ -653,7 +897,7 @@ Date:   2024
           </div>
           <div className="preview-panel">
             <div className="resume-preview-card">
-              <div className="resume-icon">📄</div>
+              <div className="resume-icon">▣</div>
               <h1 className="resume-title">Resume / CV</h1>
               <p className="resume-subtitle">
                 Download my complete professional resume
@@ -681,10 +925,10 @@ Date:   2024
               <div className="resume-highlights">
                 <h3>Highlights</h3>
                 <ul>
-                  <li>🎓 {resumeData.education[0].degree}</li>
-                  <li>🤖 AI/ML & Full-Stack Development Expert</li>
-                  <li>🚀 Research & Development Focus</li>
-                  <li>🏆 {resumeData.achievements[0]}</li>
+                  <li>{resumeData.education[0].degree}</li>
+                  <li>AI/ML & Full-Stack Development Expert</li>
+                  <li>Research & Development Focus</li>
+                  <li>{resumeData.achievements[0]}</li>
                 </ul>
               </div>
 
@@ -692,7 +936,7 @@ Date:   2024
                 className="download-button"
                 onClick={handleDownloadResume}
               >
-                <span className="download-icon">⬇</span>
+                <span className="download-icon">↓</span>
                 Download Resume
               </button>
 
@@ -714,7 +958,7 @@ Date:   2024
           </div>
           <div className="preview-panel">
             <div className="game-preview-card">
-              <h2 className="game-title">🦖 Chrome Dino Game</h2>
+              <h2 className="game-title">Chrome Dino Game</h2>
               <p className="game-instructions">
                 Press <kbd>Space</kbd> or <kbd>↑</kbd> to jump, <kbd>↓</kbd> to
                 duck

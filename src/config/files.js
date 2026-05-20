@@ -10,7 +10,28 @@ export const PORTFOLIO_FILES = [
     name: "about.md",
     icon: "markdown",
     keywords:
-      "about skills experience education python javascript react AI ML MIET FIT teaching",
+      "about introduction bio background summary profile",
+    inExplorer: true,
+  },
+  {
+    name: "skills.json",
+    icon: "json",
+    keywords:
+      "skills programming languages python javascript AI ML frameworks libraries tools",
+    inExplorer: true,
+  },
+  {
+    name: "experience.ts",
+    icon: "typescript",
+    keywords:
+      "experience work history jobs internships teaching FIT BR Softsol IIT Kanpur",
+    inExplorer: true,
+  },
+  {
+    name: "education.py",
+    icon: "python",
+    keywords:
+      "education degree bachelor IIT Ropar MIET university college school",
     inExplorer: true,
   },
   {
@@ -36,7 +57,7 @@ export const PORTFOLIO_FILES = [
     name: "career_timeline.git",
     icon: "git",
     keywords:
-      "career timeline git history education IIT Ropar MBA MIET work experience",
+      "career timeline git history education IIT Ropar MIET work experience",
     inExplorer: false,
   },
   {
