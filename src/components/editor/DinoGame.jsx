@@ -345,7 +345,7 @@ const DinoGame = () => {
   };
 
   return (
-    <div className="game-pane">
+    <div className="game-pane" role="application" aria-label="Chrome Dino Game - Press Space to jump">
       <div className="game-info">
         <span>HI {String(highScore).padStart(5, "0")}</span>
         <span style={{ marginLeft: "20px" }}>

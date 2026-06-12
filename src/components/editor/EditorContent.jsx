@@ -467,7 +467,12 @@ Date:   2024
                 className="quick-start-card"
                 onClick={() => openFile("home.jsx")}
               >
-                <div className="card-icon">▸</div>
+                <div className="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                  </svg>
+                </div>
                 <div className="card-title">Home</div>
                 <div className="card-description">Start here</div>
               </button>
@@ -475,7 +480,13 @@ Date:   2024
                 className="quick-start-card"
                 onClick={() => openFile("about.md")}
               >
-                <div className="card-icon">◉</div>
+                <div className="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="16" x2="12" y2="12" />
+                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                  </svg>
+                </div>
                 <div className="card-title">About</div>
                 <div className="card-description">Background & bio</div>
               </button>
@@ -483,7 +494,12 @@ Date:   2024
                 className="quick-start-card"
                 onClick={() => openFile("skills.json")}
               >
-                <div className="card-icon">{"{}"}</div>
+                <div className="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                </div>
                 <div className="card-title">Skills</div>
                 <div className="card-description">Technical expertise</div>
               </button>
@@ -491,7 +507,12 @@ Date:   2024
                 className="quick-start-card"
                 onClick={() => openFile("experience.ts")}
               >
-                <div className="card-icon">◈</div>
+                <div className="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                  </svg>
+                </div>
                 <div className="card-title">Experience</div>
                 <div className="card-description">Work history</div>
               </button>
@@ -499,7 +520,11 @@ Date:   2024
                 className="quick-start-card"
                 onClick={() => openFile("projects.js")}
               >
-                <div className="card-icon">⚡</div>
+                <div className="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                  </svg>
+                </div>
                 <div className="card-title">Projects</div>
                 <div className="card-description">Portfolio work</div>
               </button>
@@ -507,7 +532,12 @@ Date:   2024
                 className="quick-start-card"
                 onClick={() => openFile("contact.html")}
               >
-                <div className="card-icon">@</div>
+                <div className="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
                 <div className="card-title">Contact</div>
                 <div className="card-description">Get in touch</div>
               </button>
@@ -1017,7 +1047,7 @@ Date:   2024
     );
   };
 
-  return <div className="editor-content">{renderContent()}</div>;
+  return <div className="editor-content" key={activeTab || "welcome"}>{renderContent()}</div>;
 };
 
 export default EditorContent;

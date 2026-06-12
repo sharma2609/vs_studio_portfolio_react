@@ -6,6 +6,13 @@ const TabsBar = () => {
 
   if (openTabs.size === 0) return <div className="tabs-bar" />;
 
+  const handleMouseDown = (e, fileName) => {
+    if (e.button === 1) {
+      e.preventDefault();
+      closeFile(fileName);
+    }
+  };
+
   return (
     <div className="tabs-bar" role="tablist">
       {Array.from(openTabs.keys()).map((fileName) => {
@@ -18,6 +25,7 @@ const TabsBar = () => {
             aria-selected={isActive}
             className={`tab ${isActive ? "active" : ""}`}
             onClick={() => openFile(fileName)}
+            onMouseDown={(e) => handleMouseDown(e, fileName)}
           >
             <svg
               className="tab-icon"

@@ -23,6 +23,7 @@ export const PortfolioProvider = ({ children }) => {
   const [terminalVisible, setTerminalVisible] = useState(true);
   const [activeTerminalPane, setActiveTerminalPane] = useState("chatbot");
   const [terminalHeight, setTerminalHeight] = useState(250);
+  const [sidebarWidth, setSidebarWidth] = useState(250);
 
   useEffect(() => {
     const onResize = () => {
@@ -109,6 +110,8 @@ export const PortfolioProvider = ({ children }) => {
         setActiveTerminalPane,
         terminalHeight,
         setTerminalHeight,
+        sidebarWidth,
+        setSidebarWidth,
       }}
     >
       {children}

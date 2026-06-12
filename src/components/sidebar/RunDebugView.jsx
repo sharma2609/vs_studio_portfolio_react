@@ -18,22 +18,24 @@ const RunDebugView = () => {
           {gameFiles.map((file) => {
             const icon = getJsIcon();
             return (
-              <li
-                key={file.name}
-                className="hover-highlight"
-                onClick={() => openFile(file.name)}
-              >
-                <svg
-                  className="file-explorer-icon"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill={icon.color}
-                  aria-hidden="true"
+              <li key={file.name}>
+                <button
+                  className="hover-highlight list-button"
+                  onClick={() => openFile(file.name)}
+                  type="button"
                 >
-                  <path d={icon.path} />
-                </svg>
-                {file.name}
+                  <svg
+                    className="file-explorer-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill={icon.color}
+                    aria-hidden="true"
+                  >
+                    <path d={icon.path} />
+                  </svg>
+                  {file.name}
+                </button>
               </li>
             );
           })}

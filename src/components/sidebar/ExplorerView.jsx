@@ -21,27 +21,27 @@ const ExplorerView = () => {
           {EXPLORER_FILES.map((file) => {
             const icon = getFileIcon(file.name, file.icon);
             return (
-              <li
-                key={file.name}
-                className="hover-highlight"
-                role="button"
-                tabIndex={0}
-                onClick={() => handleFileClick(file.name)}
-                onKeyDown={(e) =>
-                  handleListKeyDown(e, () => handleFileClick(file.name))
-                }
-              >
-                <svg
-                  className="file-explorer-icon"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill={icon.color}
-                  aria-hidden="true"
+              <li key={file.name}>
+                <button
+                  className="hover-highlight list-button"
+                  onClick={() => handleFileClick(file.name)}
+                  onKeyDown={(e) =>
+                    handleListKeyDown(e, () => handleFileClick(file.name))
+                  }
+                  type="button"
                 >
-                  <path d={icon.path} />
-                </svg>
-                {file.name}
+                  <svg
+                    className="file-explorer-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill={icon.color}
+                    aria-hidden="true"
+                  >
+                    <path d={icon.path} />
+                  </svg>
+                  {file.name}
+                </button>
               </li>
             );
           })}

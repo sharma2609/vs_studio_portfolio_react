@@ -51,22 +51,21 @@ const SearchView = () => {
       />
       <div className="search-results-container">
         {searchResults.map((result) => (
-          <div
+          <button
             key={result.filename}
             className="search-result-item hover-highlight"
-            role="button"
-            tabIndex={0}
             onClick={() => handleResultClick(result.filename)}
             onKeyDown={(e) =>
               handleListKeyDown(e, () => handleResultClick(result.filename))
             }
+            type="button"
           >
             <div className="filename">{result.filename}</div>
             <div className="context">
               {result.matchType === "filename" ? "File match" : "Topic match"} —{" "}
               {formatContext(result.context)}
             </div>
-          </div>
+          </button>
         ))}
         {searchTerm.length >= 2 && searchResults.length === 0 && (
           <div className="search-result-item">

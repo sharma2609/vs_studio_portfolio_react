@@ -22,23 +22,23 @@ const ExtensionsView = () => {
       <div className="theme-switcher">
         <ul>
           {THEMES.map((themeOption) => (
-            <li
-              key={themeOption.id}
-              className={`hover-highlight ${theme === themeOption.id ? "active" : ""}`}
-              role="button"
-              tabIndex={0}
-              aria-current={theme === themeOption.id ? "true" : undefined}
-              onClick={() => changeTheme(themeOption.id)}
-              onKeyDown={(e) =>
-                handleListKeyDown(e, () => changeTheme(themeOption.id))
-              }
-            >
-              <span
-                className="theme-swatch"
-                style={{ backgroundColor: themeOption.swatch }}
-                aria-hidden="true"
-              />
-              {themeOption.name}
+            <li key={themeOption.id}>
+              <button
+                className={`hover-highlight list-button ${theme === themeOption.id ? "active" : ""}`}
+                aria-current={theme === themeOption.id ? "true" : undefined}
+                onClick={() => changeTheme(themeOption.id)}
+                onKeyDown={(e) =>
+                  handleListKeyDown(e, () => changeTheme(themeOption.id))
+                }
+                type="button"
+              >
+                <span
+                  className="theme-swatch"
+                  style={{ backgroundColor: themeOption.swatch }}
+                  aria-hidden="true"
+                />
+                {themeOption.name}
+              </button>
             </li>
           ))}
         </ul>

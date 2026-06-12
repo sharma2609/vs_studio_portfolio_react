@@ -35,7 +35,7 @@ body.theme-dark {
   --bg-input: #3c3c3c;
   --bg-statusbar: #007acc;
   --text-primary: #cccccc;
-  --text-secondary: #858585;
+  --text-secondary: #a0a0a0;
   --accent-primary: #007acc;
   --accent-secondary: #3794ff;
   --border-primary: #3c3c3c;
@@ -62,7 +62,7 @@ body.theme-light {
   --bg-input: #ffffff;
   --bg-statusbar: #005fb8;
   --text-primary: #1f1f1f;
-  --text-secondary: #5c5c5c;
+  --text-secondary: #4a4a4a;
   --accent-primary: #005fb8;
   --accent-secondary: #0078d4;
   --border-primary: #e0e0e0;

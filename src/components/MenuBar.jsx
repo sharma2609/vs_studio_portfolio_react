@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePortfolio } from "../contexts/PortfolioContext";
 import { FILE_NAMES } from "../config/files";
 import personalInfo from "../data/personalInfo";
@@ -13,10 +13,37 @@ const MenuBar = () => {
     terminalVisible,
   } = usePortfolio();
   const [commandSearch, setCommandSearch] = useState("");
+  const hasNavigated = useRef(false);
   const { socials } = personalInfo;
+
+  useEffect(() => {
+    if (!commandSearch.trim()) {
+      hasNavigated.current = false;
+      return;
+    }
+    const timer = setTimeout(() => {
+      if (hasNavigated.current) return;
+      const searchTerm = commandSearch.toLowerCase();
+      const matchedFile = FILE_NAMES.find((file) =>
+        file.toLowerCase().includes(searchTerm)
+      );
+      if (matchedFile) {
+        openFile(matchedFile);
+        hasNavigated.current = true;
+        setCommandSearch("");
+      } else {
+        setActiveView("search");
+        hasNavigated.current = true;
+        setCommandSearch("");
+      }
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [commandSearch, openFile, setActiveView]);
 
   const handleCommandSearch = (e) => {
     if (e.key === "Enter" && commandSearch.trim()) {
+      hasNavigated.current = false;
+      clearTimeout(window._searchTimer);
       const searchTerm = commandSearch.toLowerCase();
       const matchedFile = FILE_NAMES.find((file) =>
         file.toLowerCase().includes(searchTerm)
