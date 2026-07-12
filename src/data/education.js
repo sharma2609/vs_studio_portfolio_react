@@ -1,10 +1,10 @@
 const education = [
   {
-    degree: "Minor in AI",
+    degree: "Major in Artificial Intelligence",
     institution: "IIT Ropar",
     year: "2024 - 2026",
     details:
-      "Multidisciplinary AI program covering ML, DL, NLP, and multilingual language processing.",
+      "Artificial Intelligence program covering ML, DL, NLP, and multilingual language processing.",
   },
   {
     degree: "Bachelor of Technology",

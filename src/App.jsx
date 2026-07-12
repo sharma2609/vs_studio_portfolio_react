@@ -3,7 +3,6 @@ import MenuBar from "./components/MenuBar";
 import ActivityBar from "./components/ActivityBar";
 import Sidebar from "./components/Sidebar";
 import EditorGroup from "./components/EditorGroup";
-import TerminalPanel from "./components/TerminalPanel";
 import StatusBar from "./components/StatusBar";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { PortfolioProvider } from "./contexts/PortfolioContext";

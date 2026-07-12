@@ -1,274 +1,148 @@
-# VS Code Portfolio - Priyanshu Sharma
+# VS Code Portfolio
 
-A modern, interactive portfolio website designed to look and feel like Visual Studio Code. Built with React and Vite, this portfolio showcases my professional experience, projects, skills, and achievements in an engaging developer-friendly interface.
+A personal portfolio website that replicates the Visual Studio Code interface, built with React and Vite. Designed for developers who want to present their resume, projects, and skills in an interactive, editor-like experience.
 
-![Portfolio Preview](https://img.shields.io/badge/React-18.2.0-blue) ![Vite](https://img.shields.io/badge/Vite-7.1.9-purple) ![License](https://img.shields.io/badge/license-MIT-green)
+## Overview
 
-## 🌟 Features
+This project replaces the traditional portfolio page with a functional VS Code mockup. Visitors navigate through files representing different sections of a developer's resume — skills, experience, education, projects — as if browsing a real codebase. The editor displays split views with "source code" on the left and rendered content previews on the right, creating a developer-native way to present professional information.
 
-- **VS Code Interface**: Authentic VS Code-inspired UI with activity bar, sidebar, editor, and terminal panels
-- **Interactive File Explorer**: Navigate through different sections like a real code editor
-- **Split View**: Code and preview panels showing both source and rendered content
-- **Multiple Themes**: Switch between popular VS Code themes (Catppuccin Mocha, GitHub Dark, One Dark Pro, etc.)
-- **AI Chatbot**: Interactive chatbot in the terminal for answering questions about my experience
-- **Dino Game**: Hidden Chrome dinosaur game for fun
-- **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
-- **Smooth Animations**: Polished transitions and hover effects throughout
+The portfolio is fully static (no backend), loads fast, and works across all devices. It supports multiple VS Code themes, a built-in chatbot for Q&A about the developer, and a hidden dinosaur game easter egg.
 
-## 🚀 Live Demo
+## Features
 
-Visit the live portfolio: [PriyanshuSharma.Dev](https://PriyanshuSharma.Dev)
+- **VS Code interface** — Activity bar, sidebar, editor tabs, terminal panel, and status bar that mirror the real editor
+- **File explorer** — Navigate resume sections as files (`.jsx`, `.md`, `.json`, `.ts`, `.py`, `.html`, `.pdf`)
+- **Split-view editor** — Code on the left, rendered preview on the right for each section
+- **5 themes** — Catppuccin Mocha (default), Dark, Light, Nord, Cyberpunk — switchable from the Extensions sidebar or status bar
+- **Keyboard shortcuts** — `Ctrl+B` toggles sidebar, `Ctrl+J` toggles terminal panel
+- **Chatbot** — Terminal-based Q&A assistant that answers questions about skills, experience, projects, and contact info using keyword matching
+- **Dino game** — Hidden Chrome-style runner game accessible via Run & Debug sidebar
+- **Contact form** — Sends messages via `mailto:` protocol (no backend required)
+- **Resume download** — Direct PDF download from the editor
+- **Responsive** — Mobile layout auto-collapses sidebar, hides code panel on small screens
+- **Resizable panels** — Drag-to-resize sidebar width and terminal height
 
-## 📱 Mobile Optimization
+## Tech Stack
 
-The portfolio is fully responsive with special optimizations for mobile devices:
-- **Mobile View**: Shows only the preview panel (code panel hidden) for better readability
-- **Touch-Friendly**: Larger touch targets and optimized spacing
-- **Collapsible Sidebar**: Slide-out navigation with overlay
-- **Adaptive Layout**: Content adjusts seamlessly across all screen sizes
+| Layer | Technology |
+|-------|-----------|
+| Framework | React 18.2 |
+| Build tool | Vite 7.x |
+| Styling | Pure CSS with CSS custom properties (no UI library) |
+| Icons | Inline SVG |
+| Font | JetBrains Mono Nerd Font (CDN) |
+| Linting | ESLint 9 (flat config) with React/hooks plugins |
 
-## 🛠️ Tech Stack
-
-- **Frontend Framework**: React 18.2.0
-- **Build Tool**: Vite 7.1.9
-- **Styling**: Pure CSS with CSS Variables for theming
-- **Icons**: Custom SVG icons
-- **Fonts**: JetBrains Mono (Nerd Font)
-
-## 📂 Project Structure
-
-```
-vs_studio_portfolio_react/
-├── public/
-│   └── PriyanshuSharma_Resume.pdf
-├── src/
-│   ├── components/
-│   │   ├── editor/
-│   │   │   ├── DinoGame.jsx
-│   │   │   ├── EditorContent.jsx
-│   │   │   ├── SplitView.jsx
-│   │   │   └── TabsBar.jsx
-│   │   ├── sidebar/
-│   │   │   ├── ExplorerView.jsx
-│   │   │   ├── ExtensionsView.jsx
-│   │   │   ├── RunDebugView.jsx
-│   │   │   ├── SearchView.jsx
-│   │   │   └── SourceControlView.jsx
-│   │   ├── terminal/
-│   │   │   ├── ChatbotPane.jsx
-│   │   │   ├── ContactPane.jsx
-│   │   │   ├── ProblemsPane.jsx
-│   │   │   └── TerminalPane.jsx
-│   │   ├── ActivityBar.jsx
-│   │   ├── EditorGroup.jsx
-│   │   ├── MenuBar.jsx
-│   │   ├── Sidebar.jsx
-│   │   ├── StatusBar.jsx
-│   │   └── TerminalPanel.jsx
-│   ├── config/
-│   │   └── files.js
-│   ├── contexts/
-│   │   ├── PortfolioContext.jsx
-│   │   └── ThemeContext.jsx
-│   ├── data/
-│   │   ├── achievements.js
-│   │   ├── education.js
-│   │   ├── experience.js
-│   │   ├── index.js
-│   │   ├── personalInfo.js
-│   │   ├── projects.js
-│   │   ├── resumeData.js
-│   │   └── skills.js
-│   ├── utils/
-│   │   ├── fileIcons.js
-│   │   └── keyboard.js
-│   ├── App.jsx
-│   ├── main.jsx
-│   ├── index.css
-│   ├── themes.css
-│   ├── fonts.css
-│   └── css-fixes.css
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
-```
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- Node.js >= 18.0.0
-- npm or yarn
+- **Node.js >= 18.0.0**
+- npm (comes with Node)
 
 ### Installation
 
-1. Clone the repository:
 ```bash
 git clone https://github.com/sharma2609/vs_studio_portfolio_react.git
 cd vs_studio_portfolio_react
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Start the development server:
+### Development
+
 ```bash
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+Opens at `http://localhost:5173` with hot module replacement.
 
-### Build for Production
+### Production Build
 
 ```bash
 npm run build
 ```
 
-The built files will be in the `dist/` directory, ready for deployment.
-
-### Preview Production Build
+Output goes to `dist/`. Preview locally:
 
 ```bash
 npm run preview
 ```
 
-## 🎨 Customization
-
-### Update Personal Information
-
-Edit the files in `src/data/` to customize the portfolio with your information:
-
-- `personalInfo.js` - Name, role, contact details, social links
-- `experience.js` - Work experience and internships
-- `education.js` - Educational background
-- `projects.js` - Project details and tech stack
-- `skills.js` - Technical skills organized by category
-- `achievements.js` - Awards and accomplishments
-
-### Add New Themes
-
-1. Add theme colors in `src/themes.css`
-2. Update the theme list in `src/components/sidebar/ExtensionsView.jsx`
-
-### Modify File Structure
-
-Update `src/config/files.js` to add or remove files in the explorer view.
-
-## 📦 Deployment
-
-### Deploy to Vercel
+### Linting
 
 ```bash
-npm install -g vercel
-vercel
+npm run lint
 ```
 
-### Deploy to Netlify
+Requires zero warnings to pass.
 
-```bash
-npm run build
-# Drag and drop the dist/ folder to Netlify
+## Configuration
+
+**No environment variables required.** The project is fully static.
+
+To customize content, edit the files in `src/data/`:
+
+| File | Controls |
+|------|----------|
+| `personalInfo.js` | Name, role, email, phone, location, social links |
+| `experience.js` | Work history and internships |
+| `education.js` | Academic background |
+| `projects.js` | Project details, descriptions, tech stacks |
+| `skills.js` | Technical skills organized by category |
+| `achievements.js` | Awards, certifications, accomplishments |
+
+To add a new theme:
+1. Define CSS variables under `body.theme-<name>` in `src/themes.css`
+2. Add the theme to the `THEMES` array in `src/components/sidebar/ExtensionsView.jsx`
+3. Add the theme key to `THEME_LIST` in `src/components/StatusBar.jsx`
+
+To add or remove files in the explorer, edit `src/config/files.js`.
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── editor/          # Editor area (tabs, split view, content, dino game)
+│   ├── sidebar/         # Explorer, search, source control, extensions, run/debug
+│   ├── terminal/        # Chatbot, contact form, terminal shortcuts, problems
+│   ├── ActivityBar.jsx  # Left icon bar (VS Code activity bar)
+│   ├── EditorGroup.jsx  # Editor + terminal layout with resize
+│   ├── MenuBar.jsx      # Top bar with logo, search, toggle buttons
+│   ├── Sidebar.jsx      # Sidebar container with overlay for mobile
+│   ├── StatusBar.jsx    # Bottom bar with clock, theme, location
+│   └── TerminalPanel.jsx # Terminal tab container
+├── config/
+│   └── files.js         # Virtual file definitions for the explorer
+├── contexts/
+│   ├── PortfolioContext.jsx  # UI state (tabs, sidebar, terminal)
+│   └── ThemeContext.jsx      # Theme state with localStorage persistence
+├── data/                # All portfolio content (edit these to customize)
+│   ├── personalInfo.js
+│   ├── experience.js
+│   ├── education.js
+│   ├── projects.js
+│   ├── skills.js
+│   └── achievements.js
+├── utils/
+│   ├── fileIcons.js     # SVG icons mapped by file extension
+│   └── keyboard.js      # Keyboard accessibility helper
+├── index.css            # Main styles (~3000 lines)
+├── themes.css           # Theme CSS variable definitions
+├── css-fixes.css        # Layout overrides for split views
+└── fonts.css            # JetBrains Mono Nerd Font face declarations
 ```
 
-### Deploy to GitHub Pages
+## Deployment
 
-1. Install gh-pages:
-```bash
-npm install --save-dev gh-pages
-```
+The project includes configs for both Vercel and Netlify:
 
-2. Add to `package.json`:
-```json
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-```
+**Vercel** — Push to GitHub, import repo at vercel.com, auto-detects Vite.
 
-3. Deploy:
-```bash
-npm run deploy
-```
+**Netlify** — Push to GitHub, import repo at netlify.com, uses `netlify.toml`.
 
-## 🎯 Features Breakdown
+**GitHub Pages** — Add `gh-pages` devDependency, set `base` in `vite.config.js`, run `npm run deploy`.
 
-### Activity Bar
-- **Explorer**: Browse files and sections
-- **Search**: Search through portfolio content
-- **Source Control**: View career and achievements timeline
-- **Run & Debug**: Quick actions and shortcuts
-- **Extensions**: Theme switcher
+## License
 
-### Editor Panel
-- **Split View**: Code on left, preview on right (desktop only)
-- **Tabs**: Multiple files can be open simultaneously
-- **Syntax Highlighting**: Realistic code display
-- **File Icons**: Language-specific icons
-
-### Terminal Panel
-- **Problems**: Known issues and todos
-- **Terminal**: Command-line interface simulation
-- **Contact**: Contact form and information
-- **Chatbot**: AI-powered Q&A about experience
-
-### Sidebar Views
-- **Explorer**: File tree navigation
-- **Search**: Content search functionality
-- **Source Control**: Git-style timeline
-- **Extensions**: Theme customization
-- **Run & Debug**: Quick links
-
-## 🔧 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 👤 Author
-
-**Priyanshu Sharma**
-- Portfolio: [PriyanshuSharma.Dev](https://PriyanshuSharma.Dev)
-- GitHub: [@sharma2609](https://github.com/sharma2609)
-- LinkedIn: [Priyanshu Sharma](https://linkedin.com/in/priyanshu-sharma)
-- Email: priyanshu.sharma.2609p@gmail.com
-
-## 🙏 Acknowledgments
-
-- Inspired by Visual Studio Code
-- Icons and design patterns from VS Code
-- Font: JetBrains Mono
-- Themes: Catppuccin, GitHub, One Dark Pro, and more
-
-## 🐛 Known Issues
-
-- None currently reported
-
-## 📝 Changelog
-
-### Version 1.0.0 (2026)
-- Initial release
-- VS Code-inspired interface
-- Multiple themes support
-- Fully responsive design
-- Interactive chatbot
-- Dino game easter egg
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/sharma2609/vs_studio_portfolio_react/issues).
-
-## ⭐ Show Your Support
-
-Give a ⭐️ if you like this project!
-
----
-
-Made with ❤️ by Priyanshu Sharma
+[MIT](LICENSE) — Copyright (c) 2026 Priyanshu Sharma

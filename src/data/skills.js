@@ -16,8 +16,8 @@ const skills = {
     "scikit-learn",
     "Transformers",
   ],
-  tools: ["Git", "Colab", "Streamlit"],
-  webDev: ["HTML", "CSS", "Tailwind CSS", "React", "Vite"],
+  tools: ["Git", "Colab", "Streamlit", "Linux"],
+  webDev: ["HTML", "CSS", "Tailwind CSS", "React", "Vite", "Node.js", "Express.js"],
   databases: ["MySQL"],
   core: ["Data Structures", "Algorithms", "Object-Oriented Programming"],
 };

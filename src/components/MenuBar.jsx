@@ -43,7 +43,6 @@ const MenuBar = () => {
   const handleCommandSearch = (e) => {
     if (e.key === "Enter" && commandSearch.trim()) {
       hasNavigated.current = false;
-      clearTimeout(window._searchTimer);
       const searchTerm = commandSearch.toLowerCase();
       const matchedFile = FILE_NAMES.find((file) =>
         file.toLowerCase().includes(searchTerm)

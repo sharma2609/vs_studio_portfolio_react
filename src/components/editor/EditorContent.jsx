@@ -92,12 +92,15 @@ For detailed information, check out:
     "CSS",
     "Tailwind CSS",
     "React",
-    "Vite"
+    "Vite",
+    "Node.js",
+    "Express.js"
   ],
   "tools": [
     "Git",
     "Google Colab",
-    "Streamlit"
+    "Streamlit",
+    "Linux"
   ],
   "databases": [
     "MySQL"
@@ -156,10 +159,10 @@ class Education:
 
 education = [
     Education(
-        degree="Minor in AI",
+        degree="Major in Artificial Intelligence",
         institution="IIT Ropar",
         year="2024 - 2026",
-        details="Multidisciplinary AI program covering ML, DL, NLP, and multilingual language processing."
+        details="Artificial Intelligence program covering ML, DL, NLP, and multilingual language processing."
     ),
     Education(
         degree="Bachelor of Technology in Computer Science",
@@ -184,9 +187,7 @@ for edu in education:
       resumeData.projects,
       null,
       2
-    )};
-
-console.log('My Projects:', projects);`,
+    )};`,
 
     "contact.html": `<div class="contact-info">
   <h2>Get in Touch</h2>
@@ -250,13 +251,13 @@ Date:   2024
     - Created multilingual translation system with speech processing
     - Full-stack AI applications with modern tech stack
 
-commit aiminor2024
+commit aimajor2024
 Author: ${resumeData.personalInfo.name}
 Date:   2024-2026
 
-    feat: Pursuing AI Minor from IIT Ropar
+    feat: Pursuing Major in Artificial Intelligence from IIT Ropar
     
-    - Multidisciplinary AI program
+    - Artificial Intelligence program
     - Covered ML, DL, NLP, and multilingual processing
     - Advanced AI/ML specialization
 
@@ -309,8 +310,8 @@ Date:   2025
           <li className="timeline-item">
             <div className="timeline-content">
               <div className="timeline-message">
-                <span className="type feat">feat</span>: Pursuing AI Minor from
-                IIT Ropar
+                <span className="type feat">feat</span>: Pursuing Major in
+                Artificial Intelligence from IIT Ropar
               </div>
               <div className="timeline-details">
                 {resumeData.personalInfo.name} pushed to main on 2024-2026
@@ -386,7 +387,7 @@ commit leetcode2024
 Author: ${resumeData.personalInfo.name}
 Date:   2024
 
-    feat: Completed 75+ Questions at LeetCode
+    feat: Completed 100+ Questions at LeetCode
     
     - Problem-solving practice
     - Algorithm and data structure proficiency
@@ -592,7 +593,7 @@ Date:   2024
             <div className="about-preview-card">
               <h1 className="about-title">About Me</h1>
               <p className="about-intro">
-                I'm <strong>{resumeData.personalInfo.name}</strong>, an{" "}
+                I&apos;m <strong>{resumeData.personalInfo.name}</strong>, an{" "}
                 {resumeData.personalInfo.role} based in {resumeData.personalInfo.location}.
               </p>
               
@@ -810,7 +811,7 @@ Date:   2024
             <div className="contact-preview-card">
               <h1 className="contact-title">Get in Touch</h1>
               <p className="contact-subtitle">
-                Let's connect and discuss potential opportunities.
+                Let&apos;s connect and discuss potential opportunities.
               </p>
 
               <div className="contact-grid">
@@ -955,7 +956,7 @@ Date:   2024
               <div className="resume-highlights">
                 <h3>Highlights</h3>
                 <ul>
-                  <li>{resumeData.education[0].degree}</li>
+                  <li>{resumeData.education[0].degree} from {resumeData.education[0].institution}</li>
                   <li>AI/ML & Full-Stack Development Expert</li>
                   <li>Research & Development Focus</li>
                   <li>{resumeData.achievements[0]}</li>

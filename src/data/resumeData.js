@@ -5,7 +5,7 @@ import education from "./education.js";
 import skills from "./skills.js";
 import achievements from "./achievements.js";
 
-const resumeData = {
+export default {
   personalInfo,
   experience,
   projects,
@@ -13,5 +13,3 @@ const resumeData = {
   skills,
   achievements,
 };
-
-export default resumeData;
