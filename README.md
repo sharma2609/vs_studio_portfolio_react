@@ -133,16 +133,4 @@ src/
 └── fonts.css            # JetBrains Mono Nerd Font face declarations
 ```
 
-## Deployment
 
-The project includes configs for both Vercel and Netlify:
-
-**Vercel** — Push to GitHub, import repo at vercel.com, auto-detects Vite.
-
-**Netlify** — Push to GitHub, import repo at netlify.com, uses `netlify.toml`.
-
-**GitHub Pages** — Add `gh-pages` devDependency, set `base` in `vite.config.js`, run `npm run deploy`.
-
-## License
-
-[MIT](LICENSE) — Copyright (c) 2026 Priyanshu Sharma
